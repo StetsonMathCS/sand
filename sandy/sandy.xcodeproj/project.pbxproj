@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59FC382823F88B7D00540F41 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FC382723F88B7D00540F41 /* LoginPageViewController.swift */; };
 		C47F665423EB3C9A00A6E91A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47F665323EB3C9A00A6E91A /* AppDelegate.swift */; };
 		C47F665623EB3C9A00A6E91A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47F665523EB3C9A00A6E91A /* SceneDelegate.swift */; };
 		C47F665823EB3C9A00A6E91A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47F665723EB3C9A00A6E91A /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		59FC382723F88B7D00540F41 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		C47F665023EB3C9A00A6E91A /* sandy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sandy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C47F665323EB3C9A00A6E91A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C47F665523EB3C9A00A6E91A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				C47F665C23EB3C9B00A6E91A /* Assets.xcassets */,
 				C47F665E23EB3C9B00A6E91A /* LaunchScreen.storyboard */,
 				C47F666123EB3C9B00A6E91A /* Info.plist */,
+				59FC382723F88B7D00540F41 /* LoginPageViewController.swift */,
 			);
 			path = sandy;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				C4EA0E9B23F47AD200A3D037 /* myClassses.swift in Sources */,
 				C4EA0E9923F47A2800A3D037 /* Tutor.swift in Sources */,
 				C47F665823EB3C9A00A6E91A /* ViewController.swift in Sources */,
+				59FC382823F88B7D00540F41 /* LoginPageViewController.swift in Sources */,
 				C47F665423EB3C9A00A6E91A /* AppDelegate.swift in Sources */,
 				C47F665623EB3C9A00A6E91A /* SceneDelegate.swift in Sources */,
 			);
