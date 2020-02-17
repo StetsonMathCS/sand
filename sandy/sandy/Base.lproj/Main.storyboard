@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gwG-Ce-gAh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xx9-zI-TbG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -12,11 +12,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="sandy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zB0-f5-ZPE">
-                                <rect key="frame" x="0.0" y="584.5" width="414" height="229.5"/>
+                                <rect key="frame" x="0.0" y="540.5" width="414" height="219.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myClasses" rowHeight="90" id="b10-aH-cbF" customClass="Tutor" customModule="sandy" customModuleProvider="target">
@@ -30,7 +30,7 @@
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Keq-3d-OAB">
-                                <rect key="frame" x="0.0" y="64" width="414" height="469"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="469"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey Name," lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yQ-AD-IqR">
                                         <rect key="frame" x="0.0" y="0.0" width="94" height="24"/>
@@ -109,7 +109,7 @@
             <objects>
                 <viewController id="hjE-5V-zCm" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Edr-z4-3cL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0rz-Qd-1rI">
@@ -140,7 +140,7 @@
             <objects>
                 <viewController id="amQ-nV-UWK" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dBt-KO-aHa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sessions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nX-QO-OVu">
@@ -276,7 +276,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <action selector="SignIn:" destination="Xx9-zI-TbG" eventType="primaryActionTriggered" id="mMb-Di-k0M"/>
+                                    <action selector="loginTapped:" destination="Xx9-zI-TbG" eventType="touchUpInside" id="qwR-DS-UPH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -287,6 +287,7 @@
                     <connections>
                         <outlet property="Password" destination="TWb-4n-A1y" id="Wdj-Ai-UxS"/>
                         <outlet property="Username" destination="TWb-4n-A1y" id="aC8-mF-alE"/>
+                        <segue destination="gwG-Ce-gAh" kind="show" identifier="goHome" id="TWM-Zd-ycx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7E-eS-zGU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -312,24 +313,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbI-Nx-Prc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-960.86956521739137" y="549.77678571428567"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="mlH-cc-a3z">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N15-ae-Ik9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Mf-cC-Ocx" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="D85-RL-in8">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Xx9-zI-TbG" kind="relationship" relationship="rootViewController" id="ram-NY-UAP"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="-3028" y="558"/>
         </scene>
     </scenes>
     <resources>

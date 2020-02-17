@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseUI
 
 class LoginPageViewController: UIViewController
 {
@@ -16,18 +17,28 @@ class LoginPageViewController: UIViewController
     @IBOutlet var Password: UITextField!
     
     
-    @IBAction func SignIn(_ sender: Any)
+
+    @IBAction func loginTapped(_ sender: Any)
     {
-        if(Username.text == "Goodbye" && Password.text == "Hello")
-        {
-            print("Credentials Accepted")
-            print(Username.text)
+        // gets default auth UI object
+        let authUI = FUIAuth.defaultAuthUI()
+        
+        guard authUI != nil
+        else {
+            //Log the error
+            return
         }
-        else
-        {
-            print("Access Denied")
-        }
+        
+        // set ourselves as the delegate
+        authUI?.delegate = self
+        
+        //get a reference to the auth UI view Controller
+        let authViewController = authUI!.authViewController()
+        
+        //show it
+        present(authViewController, animated: true, completion: nil)
     }
+    
     
     
     override func viewDidLoad() {
@@ -47,4 +58,20 @@ class LoginPageViewController: UIViewController
     }
     */
 
+}
+
+
+extension LoginPageViewController: FUIAuthDelegate
+{
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?)
+    {
+        //check to see if their is an error
+        if error != nil
+        {
+            //log error
+            return
+        }
+        
+        performSegue(withIdentifier: "goHome", sender: self)
+    }
 }
