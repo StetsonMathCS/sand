@@ -10,7 +10,7 @@ target 'sandy' do
   pod 'Firebase', '>=2.5.0'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
-  pod 'FirebaseUI/Auth'
+  pod 'FirebaseUI'
   pod 'Firebase/Database'
 
   target 'sandyTests' do

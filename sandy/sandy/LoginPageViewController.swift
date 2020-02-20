@@ -40,7 +40,6 @@ class LoginPageViewController: UIViewController
     }
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -63,7 +62,8 @@ class LoginPageViewController: UIViewController
 
 extension LoginPageViewController: FUIAuthDelegate
 {
-    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?)
+//    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?)
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?)
     {
         //check to see if their is an error
         if error != nil
