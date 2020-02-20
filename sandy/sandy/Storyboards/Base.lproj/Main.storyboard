@@ -7,16 +7,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="sandy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zB0-f5-ZPE">
-                                <rect key="frame" x="0.0" y="540.5" width="414" height="219.5"/>
+                                <rect key="frame" x="0.0" y="584.5" width="414" height="229.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myClasses" rowHeight="90" id="b10-aH-cbF" customClass="Tutor" customModule="sandy" customModuleProvider="target">
@@ -30,7 +30,7 @@
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Keq-3d-OAB">
-                                <rect key="frame" x="0.0" y="20" width="414" height="469"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="469"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey Name," lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yQ-AD-IqR">
                                         <rect key="frame" x="0.0" y="0.0" width="94" height="24"/>
@@ -104,12 +104,12 @@
             </objects>
             <point key="canvasLocation" x="42.028985507246382" y="-44.196428571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--Account Settings View Controller-->
         <scene sceneID="1OH-ZX-4LV">
             <objects>
-                <viewController id="hjE-5V-zCm" sceneMemberID="viewController">
+                <viewController id="hjE-5V-zCm" customClass="AccountSettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Edr-z4-3cL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0rz-Qd-1rI">
@@ -135,12 +135,12 @@
             </objects>
             <point key="canvasLocation" x="171.01449275362319" y="991.74107142857133"/>
         </scene>
-        <!--View Controller-->
+        <!--Account View Controller-->
         <scene sceneID="qsZ-cB-eL5">
             <objects>
-                <viewController id="amQ-nV-UWK" sceneMemberID="viewController">
+                <viewController id="amQ-nV-UWK" customClass="AccountViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dBt-KO-aHa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sessions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nX-QO-OVu">
@@ -287,17 +287,16 @@
                     <connections>
                         <outlet property="Password" destination="TWb-4n-A1y" id="Wdj-Ai-UxS"/>
                         <outlet property="Username" destination="TWb-4n-A1y" id="aC8-mF-alE"/>
-                        <segue destination="gwG-Ce-gAh" kind="show" identifier="goHome" id="TWM-Zd-ycx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7E-eS-zGU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2041" y="558"/>
+            <point key="canvasLocation" x="-2374" y="550"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="plq-J7-f3U">
             <objects>
-                <tabBarController id="gwG-Ce-gAh" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeVC" id="gwG-Ce-gAh" customClass="TabViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="pGN-wY-rWL"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="L00-mX-sCE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

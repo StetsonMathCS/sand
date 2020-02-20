@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		59081D1E23F9B03600B39CAD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59081D1D23F9B03600B39CAD /* GoogleService-Info.plist */; };
+		5980332023FEDEC800B46FEF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5980331F23FEDEC800B46FEF /* Constants.swift */; };
 		59FC382823F88B7D00540F41 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FC382723F88B7D00540F41 /* LoginPageViewController.swift */; };
 		632659142AF33D234F339484 /* Pods_sandy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30BBD18B5CA395EFFB3165F /* Pods_sandy.framework */; };
 		9445A66076903CD63F8656F5 /* Pods_sandy_sandyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5261B4CF7AD1EC0C2B78F134 /* Pods_sandy_sandyUITests.framework */; };
@@ -48,6 +49,7 @@
 		1F26B4D6EA00055414581A26 /* Pods-sandyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sandyTests.debug.xcconfig"; path = "Target Support Files/Pods-sandyTests/Pods-sandyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5261B4CF7AD1EC0C2B78F134 /* Pods_sandy_sandyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sandy_sandyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59081D1D23F9B03600B39CAD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5980331F23FEDEC800B46FEF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		59FC382723F88B7D00540F41 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		6E4411BEFEBBB5F194619A32 /* Pods-sandy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sandy.release.xcconfig"; path = "Target Support Files/Pods-sandy/Pods-sandy.release.xcconfig"; sourceTree = "<group>"; };
 		73C89EF4CB2BB5A1D9075841 /* Pods-sandyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sandyTests.release.xcconfig"; path = "Target Support Files/Pods-sandyTests/Pods-sandyTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +115,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5980332123FEE02000B46FEF /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C47F665723EB3C9A00A6E91A /* ViewController.swift */,
+				59FC382723F88B7D00540F41 /* LoginPageViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		5980332223FEE08600B46FEF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C47F665923EB3C9A00A6E91A /* Main.storyboard */,
+				C47F665E23EB3C9B00A6E91A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		AB87222B4714B2036E73F161 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,18 +171,17 @@
 		C47F665223EB3C9A00A6E91A /* sandy */ = {
 			isa = PBXGroup;
 			children = (
+				5980332223FEE08600B46FEF /* Storyboards */,
+				5980332123FEE02000B46FEF /* View Controllers */,
 				C47F665323EB3C9A00A6E91A /* AppDelegate.swift */,
 				C47F665523EB3C9A00A6E91A /* SceneDelegate.swift */,
-				C47F665723EB3C9A00A6E91A /* ViewController.swift */,
-				C47F665923EB3C9A00A6E91A /* Main.storyboard */,
 				C4EA0E9823F47A2800A3D037 /* Tutor.swift */,
 				C4EA0E9A23F47AD200A3D037 /* myClassses.swift */,
 				C4EA0E9C23F47AE900A3D037 /* Settings.swift */,
+				5980331F23FEDEC800B46FEF /* Constants.swift */,
 				C4EA0E9E23F48F9400A3D037 /* TutorTableViewController.swift */,
 				C47F665C23EB3C9B00A6E91A /* Assets.xcassets */,
-				C47F665E23EB3C9B00A6E91A /* LaunchScreen.storyboard */,
 				C47F666123EB3C9B00A6E91A /* Info.plist */,
-				59FC382723F88B7D00540F41 /* LoginPageViewController.swift */,
 				59081D1D23F9B03600B39CAD /* GoogleService-Info.plist */,
 			);
 			path = sandy;
@@ -470,6 +489,7 @@
 				59FC382823F88B7D00540F41 /* LoginPageViewController.swift in Sources */,
 				C47F665423EB3C9A00A6E91A /* AppDelegate.swift in Sources */,
 				C47F665623EB3C9A00A6E91A /* SceneDelegate.swift in Sources */,
+				5980332023FEDEC800B46FEF /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
