@@ -119,6 +119,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Info" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53t-St-gYc">
+                                <rect key="frame" x="20" y="480" width="374" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -130,10 +137,13 @@
                         <viewLayoutGuide key="safeArea" id="HRD-P6-b3e"/>
                     </view>
                     <navigationItem key="navigationItem" id="OVb-WT-Ko5"/>
+                    <connections>
+                        <outlet property="infoLabel" destination="53t-St-gYc" id="7y2-Z0-aPr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E2i-zK-fbg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-158" y="-516"/>
+            <point key="canvasLocation" x="-159.42028985507247" y="-516.29464285714289"/>
         </scene>
         <!--Account Settings View Controller-->
         <scene sceneID="1OH-ZX-4LV">
@@ -539,6 +549,6 @@
         <image name="tutor1" width="364" height="364"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FPj-j0-wkV"/>
+        <segue reference="x3Q-aM-r9c"/>
     </inferredMetricsTieBreakers>
 </document>
