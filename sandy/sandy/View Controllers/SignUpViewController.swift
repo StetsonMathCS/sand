@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class SignUpViewController: UIViewController
 {
@@ -72,7 +73,17 @@ class SignUpViewController: UIViewController
                 }
                 else
                 {
-                    self.transitionToHome()
+                    self.performSegue(withIdentifier: "signUp", sender: self)
+                    
+                    let ref = Database.database().reference()
+                    let currentUser = Auth.auth().currentUser
+                    let uid = currentUser!.uid
+                    ref.child("Students/students").child(uid).setValue(["firstName":firstName,  "lastName":lastName, "email":email])
+//                    ref.child("Students/students").setValue([uid])
+//                    ref2.child(uid).setValue(["firstName":firstName,  "lastName":lastName, "email":email])
+                    
+                    
+                    //self.transitionToHome()
                     
                 }
             }

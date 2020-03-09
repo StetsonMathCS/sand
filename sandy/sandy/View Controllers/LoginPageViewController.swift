@@ -19,6 +19,7 @@ class LoginPageViewController: UIViewController
     @IBOutlet var errorLabel: UILabel!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         setUpElements()
         }
@@ -30,28 +31,28 @@ class LoginPageViewController: UIViewController
     }
     
     @IBAction func loginTapped(_ sender: Any)
+
     {
         let email = Username.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = Password.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         // gets default auth UI object
         //        let authUI = FUIAuth.defaultAuthUI()
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-            
+
             if error != nil {
                 // Couldn't sign in
                 self.errorLabel.text = error!.localizedDescription
                 print(error!.localizedDescription)
-                print(email)
-                print(password)
-                
                 self.errorLabel.alpha = 1
             }
             else {
                 
-                let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.welcomeViewController) as? HomeViewController
+                self.performSegue(withIdentifier: "Login", sender: self)  
+//                let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.welcomeViewController) as? HomeViewController
+//
+//                self.view.window?.rootViewController = homeViewController
+//                self.view.window?.makeKeyAndVisible()
                 
-                self.view.window?.rootViewController = homeViewController
-                self.view.window?.makeKeyAndVisible()
             }
         }
     }
