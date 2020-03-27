@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E3F39841CC23C273BE7EDB2 /* Pods_iosSand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BA2C664DFD9B18EE07113A /* Pods_iosSand.framework */; };
 		3C4E451B242932EB00EF28A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E451A242932EB00EF28A3 /* AppDelegate.swift */; };
 		3C4E451D242932EB00EF28A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E451C242932EB00EF28A3 /* SceneDelegate.swift */; };
 		3C4E451F242932EB00EF28A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E451E242932EB00EF28A3 /* ViewController.swift */; };
@@ -21,12 +22,11 @@
 		3C4E453B2429337A00EF28A3 /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E45332429337A00EF28A3 /* SessionDetailView.swift */; };
 		3C4E453C2429337A00EF28A3 /* UpcomingSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E45342429337A00EF28A3 /* UpcomingSessionView.swift */; };
 		3C4E453D2429337A00EF28A3 /* myClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E45352429337A00EF28A3 /* myClasses.swift */; };
-		4309CE508AFBBC09562B9C8C /* Pods_iosSand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C1453E0E17E61A416A3F941 /* Pods_iosSand.framework */; };
+		3C8C313D242E3F3B0020F309 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C8C313C242E3F3B0020F309 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0C0CBDE7175EE19ED0C1806F /* Pods-iosSand.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosSand.debug.xcconfig"; path = "Target Support Files/Pods-iosSand/Pods-iosSand.debug.xcconfig"; sourceTree = "<group>"; };
-		3C1453E0E17E61A416A3F941 /* Pods_iosSand.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosSand.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2872B2EF4F30B4392AE7AAB2 /* Pods-iosSand.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosSand.debug.xcconfig"; path = "Target Support Files/Pods-iosSand/Pods-iosSand.debug.xcconfig"; sourceTree = "<group>"; };
 		3C4E4517242932EB00EF28A3 /* iosSand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosSand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C4E451A242932EB00EF28A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C4E451C242932EB00EF28A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +43,9 @@
 		3C4E45332429337A00EF28A3 /* SessionDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
 		3C4E45342429337A00EF28A3 /* UpcomingSessionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingSessionView.swift; sourceTree = "<group>"; };
 		3C4E45352429337A00EF28A3 /* myClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myClasses.swift; sourceTree = "<group>"; };
-		829031933BDCF5F5A6EA2E67 /* Pods-iosSand.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosSand.release.xcconfig"; path = "Target Support Files/Pods-iosSand/Pods-iosSand.release.xcconfig"; sourceTree = "<group>"; };
+		3C8C313C242E3F3B0020F309 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C46FE9ECFEE9B6DF1749FD8E /* Pods-iosSand.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosSand.release.xcconfig"; path = "Target Support Files/Pods-iosSand/Pods-iosSand.release.xcconfig"; sourceTree = "<group>"; };
+		F7BA2C664DFD9B18EE07113A /* Pods_iosSand.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosSand.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4309CE508AFBBC09562B9C8C /* Pods_iosSand.framework in Frameworks */,
+				1E3F39841CC23C273BE7EDB2 /* Pods_iosSand.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,8 +65,8 @@
 			children = (
 				3C4E4519242932EB00EF28A3 /* iosSand */,
 				3C4E4518242932EB00EF28A3 /* Products */,
-				885E4249877B0B36793C7670 /* Pods */,
-				786962D91B4D37120EF5F880 /* Frameworks */,
+				9C354B0FE00181E4787F0356 /* Pods */,
+				C77C6B035D75F9F264FBEF2D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,27 +95,27 @@
 				3C4E4520242932EB00EF28A3 /* Main.storyboard */,
 				3C4E4523242932F100EF28A3 /* Assets.xcassets */,
 				3C4E4525242932F100EF28A3 /* LaunchScreen.storyboard */,
+				3C8C313C242E3F3B0020F309 /* GoogleService-Info.plist */,
 				3C4E4528242932F100EF28A3 /* Info.plist */,
 			);
 			path = iosSand;
 			sourceTree = "<group>";
 		};
-		786962D91B4D37120EF5F880 /* Frameworks */ = {
+		9C354B0FE00181E4787F0356 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3C1453E0E17E61A416A3F941 /* Pods_iosSand.framework */,
+				2872B2EF4F30B4392AE7AAB2 /* Pods-iosSand.debug.xcconfig */,
+				C46FE9ECFEE9B6DF1749FD8E /* Pods-iosSand.release.xcconfig */,
 			);
-			name = Frameworks;
+			path = Pods;
 			sourceTree = "<group>";
 		};
-		885E4249877B0B36793C7670 /* Pods */ = {
+		C77C6B035D75F9F264FBEF2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0C0CBDE7175EE19ED0C1806F /* Pods-iosSand.debug.xcconfig */,
-				829031933BDCF5F5A6EA2E67 /* Pods-iosSand.release.xcconfig */,
+				F7BA2C664DFD9B18EE07113A /* Pods_iosSand.framework */,
 			);
-			name = Pods;
-			path = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,12 +125,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C4E452B242932F100EF28A3 /* Build configuration list for PBXNativeTarget "iosSand" */;
 			buildPhases = (
-				592B55CFC7CA6292637BF0BF /* [CP] Check Pods Manifest.lock */,
+				87E6243D902736407C885BCB /* [CP] Check Pods Manifest.lock */,
 				3C4E4513242932EB00EF28A3 /* Sources */,
 				3C4E4514242932EB00EF28A3 /* Frameworks */,
 				3C4E4515242932EB00EF28A3 /* Resources */,
-				BACA6385F2BAE79C65174D85 /* [CP] Embed Pods Frameworks */,
-				D81BBAAE2E44423D270DAB06 /* [CP] Copy Pods Resources */,
+				FFF439A5D203447269AD5D1C /* [CP] Embed Pods Frameworks */,
+				DD7EFF00AAFC32449BE3531B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -178,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C4E4527242932F100EF28A3 /* LaunchScreen.storyboard in Resources */,
+				3C8C313D242E3F3B0020F309 /* GoogleService-Info.plist in Resources */,
 				3C4E4524242932F100EF28A3 /* Assets.xcassets in Resources */,
 				3C4E4522242932EB00EF28A3 /* Main.storyboard in Resources */,
 			);
@@ -186,7 +189,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		592B55CFC7CA6292637BF0BF /* [CP] Check Pods Manifest.lock */ = {
+		87E6243D902736407C885BCB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -208,24 +211,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BACA6385F2BAE79C65174D85 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iosSand/Pods-iosSand-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iosSand/Pods-iosSand-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosSand/Pods-iosSand-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D81BBAAE2E44423D270DAB06 /* [CP] Copy Pods Resources */ = {
+		DD7EFF00AAFC32449BE3531B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -240,6 +226,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosSand/Pods-iosSand-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFF439A5D203447269AD5D1C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosSand/Pods-iosSand-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosSand/Pods-iosSand-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosSand/Pods-iosSand-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -401,7 +404,7 @@
 		};
 		3C4E452C242932F100EF28A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C0CBDE7175EE19ED0C1806F /* Pods-iosSand.debug.xcconfig */;
+			baseConfigurationReference = 2872B2EF4F30B4392AE7AAB2 /* Pods-iosSand.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -420,7 +423,7 @@
 		};
 		3C4E452D242932F100EF28A3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 829031933BDCF5F5A6EA2E67 /* Pods-iosSand.release.xcconfig */;
+			baseConfigurationReference = C46FE9ECFEE9B6DF1749FD8E /* Pods-iosSand.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
