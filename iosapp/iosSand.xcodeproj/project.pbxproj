@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E3F39841CC23C273BE7EDB2 /* Pods_iosSand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BA2C664DFD9B18EE07113A /* Pods_iosSand.framework */; };
+		3C40532524326C6100C4E713 /* AddClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40532424326C6100C4E713 /* AddClasses.swift */; };
 		3C4E451B242932EB00EF28A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E451A242932EB00EF28A3 /* AppDelegate.swift */; };
 		3C4E451D242932EB00EF28A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E451C242932EB00EF28A3 /* SceneDelegate.swift */; };
 		3C4E451F242932EB00EF28A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E451E242932EB00EF28A3 /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		2872B2EF4F30B4392AE7AAB2 /* Pods-iosSand.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosSand.debug.xcconfig"; path = "Target Support Files/Pods-iosSand/Pods-iosSand.debug.xcconfig"; sourceTree = "<group>"; };
+		3C40532424326C6100C4E713 /* AddClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClasses.swift; sourceTree = "<group>"; };
 		3C4E4517242932EB00EF28A3 /* iosSand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosSand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C4E451A242932EB00EF28A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C4E451C242932EB00EF28A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				3C4E452F2429337900EF28A3 /* ClassesListView.swift */,
 				3C4E45322429337A00EF28A3 /* LoginPageViewController.swift */,
 				3C4E45352429337A00EF28A3 /* myClasses.swift */,
+				3C40532424326C6100C4E713 /* AddClasses.swift */,
 				3C4E452E2429337900EF28A3 /* RequestController.swift */,
 				3C4E45332429337A00EF28A3 /* SessionDetailView.swift */,
 				3C4E45312429337A00EF28A3 /* Tutor.swift */,
@@ -254,6 +257,7 @@
 			files = (
 				3C4E45372429337A00EF28A3 /* ClassesListView.swift in Sources */,
 				3C4E453B2429337A00EF28A3 /* SessionDetailView.swift in Sources */,
+				3C40532524326C6100C4E713 /* AddClasses.swift in Sources */,
 				3C4E45392429337A00EF28A3 /* Tutor.swift in Sources */,
 				3C4E451F242932EB00EF28A3 /* ViewController.swift in Sources */,
 				3C4E451B242932EB00EF28A3 /* AppDelegate.swift in Sources */,

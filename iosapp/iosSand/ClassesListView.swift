@@ -19,6 +19,7 @@ struct ClassRowView: View {
 }
 
 struct ClassesListView: View {
+    @State private var showDetailForm = false
     @ObservedObject var classesListController:ClassesListController
     let screenSize = UIScreen.main.bounds
     var body: some View {
@@ -26,6 +27,8 @@ struct ClassesListView: View {
             HStack {
                 Text("My Classes").font(.system(size: 36, weight: .thin, design: .default)).foregroundColor(Color.yellow).padding(.horizontal, 40)//.background(Color.yellow)
                 Button(action: {
+                    self.showDetailForm.toggle()
+                    self.classesListController.retrieveClassList()
                     // add class
                 }) {
                     Image(systemName: "plus.circle")
@@ -33,6 +36,8 @@ struct ClassesListView: View {
                     .foregroundColor(Color.yellow) // change color if it's clicked
                     .frame(width: screenSize.width/15, height: screenSize.width/15)
                     .padding(.horizontal)
+                }.sheet(isPresented: self.$showDetailForm) {
+                    AddClasses(classesListController: self.classesListController)
                 }
             }.frame(width: screenSize.width, height: screenSize.width/6, alignment: .center)
             List {

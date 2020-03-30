@@ -10,6 +10,8 @@ import UIKit
 import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    
+    public static let GUID:String = "d076fafd-9da8-4db9-86e4-b21a128d80be"
 
     var reqController:RequestController!
     var window: UIWindow?
