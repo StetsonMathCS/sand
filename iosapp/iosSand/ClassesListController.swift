@@ -11,18 +11,21 @@ import Foundation
 class ClassesListController: ObservableObject {
     /*@Published*/
     public static var studentList: [String] = []
+    @Published var displayStudentList:[Bool] = []
     @Published var classTypeList: [String] = []
     @Published var classDic:Dictionary<String, [String]> = [:]
-    static func retrieveAllData(studentGUID: String) {
+    func retrieveAllData(studentGUID: String) {
         retrieveFirebaseData(studentGUID: studentGUID)
     }
     
-    static func retrieveFirebaseData(studentGUID: String) {
+    func retrieveFirebaseData(studentGUID: String) {
         AppDelegate.shared().studentList.child(studentGUID).child("classes").observe(.value, with: { snapshot in
             ClassesListController.studentList = []
+            self.displayStudentList = []
             for s in snapshot.value as! [String] {
                 print(s)
                 ClassesListController.studentList.append(s)
+                self.displayStudentList.append(false)
             }
         })
     }

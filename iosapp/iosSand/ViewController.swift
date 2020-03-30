@@ -12,7 +12,7 @@ import SwiftUI
 struct ViewController: View /*UIViewController, UITextFieldDelegate*/ {
     @ObservedObject var reqController:RequestController
     @State private var showDetailForm = false
-    let classesListController = ClassesListController()
+    let classesListController:ClassesListController //= ClassesListController()
     @State var page:String = "Upcoming Sessions"
     let screenSize = UIScreen.main.bounds
     @Environment(\.colorScheme) var colorScheme
@@ -20,13 +20,13 @@ struct ViewController: View /*UIViewController, UITextFieldDelegate*/ {
     var body: some View {
         VStack {
             if page == "Upcoming Sessions" {
-                UpcomingSessionsView(reqController: self.reqController)
+                UpcomingSessionsView(reqController: self.reqController, classesListController: self.classesListController)
             }
             if page == "Classes" {
                 ClassesListView(classesListController: self.classesListController)
             }
             if page == "Settings" {
-                UpcomingSessionsView(reqController: self.reqController)
+                UpcomingSessionsView(reqController: self.reqController, classesListController: self.classesListController)
             }
             HStack {
                 Button(action: {

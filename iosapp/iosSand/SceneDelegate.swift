@@ -14,6 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     public static let GUID:String = "d076fafd-9da8-4db9-86e4-b21a128d80be"
 
     var reqController:RequestController!
+    var classesListController:ClassesListController!
     var window: UIWindow?
 
 
@@ -23,21 +24,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         //guard let _ = (scene as? UIWindowScene) else { return }
         
-        var request1: Request = Request(request: "req1", matched: false, classRequest: "", time: "", location: "")
-        var request2: Request = Request(request: "req2", matched: false, classRequest: "", time: "", location: "")
+//        var request1: Request = Request(request: "req1", matched: false, classRequest: "", time: "", location: "")
+//        var request2: Request = Request(request: "req2", matched: false, classRequest: "", time: "", location: "")
         
         self.reqController = RequestController()
-        self.reqController.reqList.append(request1)
-        self.reqController.reqList.append(request2)
-        self.reqController.retrieveAllData()
-        
-        ClassesListController.retrieveAllData(studentGUID: "d076fafd-9da8-4db9-86e4-b21a128d80be")
+//        self.reqController.reqList.append(request1)
+//        self.reqController.reqList.append(request2)
+//        self.reqController.retrieveAllData()
+        self.reqController.buildRequestList()
+        self.classesListController = ClassesListController()
+        self.classesListController.retrieveAllData(studentGUID: "d076fafd-9da8-4db9-86e4-b21a128d80be")
         
 //        let classesListController: ClassesListController = ClassesListController()
 //        // Pass in studentGUID dynamically later on
 //        classesListController.retrieveAllData(studentGUID: "d076fafd-9da8-4db9-86e4-b21a128d80be")
         
-        let contentView = ViewController(reqController: self.reqController)//UpcomingSessionsView(reqController: self.reqController)
+        let contentView = ViewController(reqController: self.reqController, classesListController: self.classesListController)//UpcomingSessionsView(reqController: self.reqController)
         
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
