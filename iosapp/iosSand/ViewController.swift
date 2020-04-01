@@ -16,48 +16,28 @@ struct ViewController: View /*UIViewController, UITextFieldDelegate*/ {
     @State var page:String = "Upcoming Sessions"
     let screenSize = UIScreen.main.bounds
     @Environment(\.colorScheme) var colorScheme
-
+    
+    @State var selected = 3
+    
     var body: some View {
-        VStack {
-            if page == "Upcoming Sessions" {
-                UpcomingSessionsView(reqController: self.reqController, classesListController: self.classesListController)
-            }
-            if page == "Classes" {
-                ClassesListView(classesListController: self.classesListController)
-            }
-            if page == "Settings" {
-                UpcomingSessionsView(reqController: self.reqController, classesListController: self.classesListController)
-            }
-            HStack {
-                Button(action: {
-                    self.page = "Upcoming Sessions"
-                }) {
-                    Image(systemName: "list.bullet")
-                    .resizable()
-                    .foregroundColor(Color.yellow) // change color if it's clicked
-                    .frame(width: screenSize.width/15, height: screenSize.width/15)
-                    .padding(.horizontal, 40)
-                }
-                Button(action: {
-                    self.page = "Classes"
-                }) {
-                    Image(systemName: "book")
-                    .resizable()
-                    .foregroundColor(Color.yellow) // change color if it's clicked
-                    .frame(width: screenSize.width/15, height: screenSize.width/15)
-                    .padding(.horizontal, 40)
-                }
-                Button(action: {
-                    self.page = "Settings"
-                }) {
-                    Image(systemName: "gear")
-                    .resizable()
-                    .foregroundColor(Color.yellow) // change color if it's clicked
-                    .frame(width: screenSize.width/15, height: screenSize.width/15)
-                    .padding(.horizontal, 40)
-                }
-            }.padding(.top, 10)
-        }
+        TabView (selection: $selected) {
+            UpcomingSessionsView(reqController: self.reqController, classesListController: self.classesListController).tabItem({
+                Image(systemName: Constants.TabBarImageName.tabBar0)
+                    .font(.title)
+                Text("\(Constants.TabBarText.tabBar0)")
+            }).tag(0)
+            ClassesListView(classesListController: classesListController).tabItem({
+                Image(systemName: Constants.TabBarImageName.tabBar1)
+                    .font(.title)
+                Text("\(Constants.TabBarText.tabBar1)")
+            }).tag(1)
+            Settings().tabItem({
+                Image(systemName: Constants.TabBarImageName.tabBar2)
+                    .font(.title)
+                Text("\(Constants.TabBarText.tabBar2)")
+            }).tag(2)
+        }.accentColor(Color.yellow)
+        
     }
 }
 
