@@ -14,10 +14,22 @@ class RequestController extends Controller
      */
     public function index()
     {
-        return view("requests")->with("students", $this->getAllStudents())
+        if(session()->has("role") == false) {
+            return view('logout');
+        }
+        $role = session()->get("role");
+        if(Roles::isAdmin($role) || Roles::isStudent($role)) {
+            return view("requests")->with("students", $this->getAllStudents())
             ->with("courses", $this->getAllCourses())
             ->with("tutors", $this->getAllTutors())
-            ->with("requests", $this->getAllRequests());
+            ->with("requests", $this->getAllRequests())
+            ->with("role",$role);
+        }
+        $error = [
+            "Access Denied",
+            "You are not authorized to view this page"
+        ];
+        return view('error')->with("error",$error);
     }
 
 

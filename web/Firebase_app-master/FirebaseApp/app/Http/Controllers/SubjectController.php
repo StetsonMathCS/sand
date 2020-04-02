@@ -14,9 +14,21 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        return view("subjects")->with("courses", $this->getAllCourses())
+        if(session()->has("role") == false) {
+            return view('logout');
+        }
+        $role = session()->get("role");
+        if(Roles::isAdmin($role) || Roles::isTutor($role)) {
+            return view("subjects")->with("courses", $this->getAllCourses())
             ->with("students", $this->getAllStudents())
-            ->with("tutors", $this->getAllTutors());
+            ->with("tutors", $this->getAllTutors())
+            ->with("role",$role);
+        }
+        $error = [
+            "Access Denied",
+            "You are not authorized to view this page"
+        ];
+        return view('error')->with("error",$error);
     }
 
     public function getAllCourses() {
