@@ -19,6 +19,7 @@ class ClassesListController: ObservableObject {
     }
     
     func retrieveFirebaseData(studentGUID: String) {
+        print(studentGUID)
         AppDelegate.shared().studentList.child(studentGUID).child("classes").observe(.value, with: { snapshot in
             ClassesListController.studentList = []
             self.displayStudentList = []
