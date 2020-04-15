@@ -43,7 +43,7 @@ struct MakeRequestView: View {
                         if !self.displayTimeList[indexS] {
                             self.displayTimeList[indexS] = true
                         }
-                        print(self.classesListController.displayStudentList[indexS])
+                        //print(self.classesListController.displayStudentList[indexS])
                     }) {
                         ZStack {
                             HStack {
@@ -120,6 +120,7 @@ struct MakeRequestView: View {
         request[uuid]!["group"] = self.group
         request[uuid]!["matched"] = false
         request[uuid]!["studentGUID"] = SceneDelegate.GUID
+        request[uuid]!["tutorGUID"] = ""
         request[uuid]!["time"] = ""
         var tempTimeList:[String] = []
         var isTimeAvailable:Bool = false
