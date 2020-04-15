@@ -11,7 +11,7 @@ import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
-    public static let GUID:String = "d076fafd-9da8-4db9-86e4-b21a128d80be"
+    public static let GUID:String = "QLBZL3CdweWYFrlbwEaSc5wnEK12"
 
     var reqController:RequestController!
     var classesListController:ClassesListController!
@@ -33,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        self.reqController.retrieveAllData()
         self.reqController.buildRequestList()
         self.classesListController = ClassesListController()
-        self.classesListController.retrieveAllData(studentGUID: "d076fafd-9da8-4db9-86e4-b21a128d80be")
+        self.classesListController.retrieveAllData(studentGUID: "QLBZL3CdweWYFrlbwEaSc5wnEK12")
         
 //        let classesListController: ClassesListController = ClassesListController()
 //        // Pass in studentGUID dynamically later on

@@ -35,6 +35,8 @@ class RequestController: ObservableObject {
                     req.matched = v as? Bool
                 case "studentGUID":
                     req.studentGUID = v as? String
+                case "tutorGUID":
+                    req.tutorGUID = v as? String
                 case "time":
                     req.time = v as? String
                 case "timesAvailable":
@@ -82,6 +84,7 @@ class Request: Identifiable, ObservableObject {
     @Published var group:Bool!
     @Published var matched: Bool!
     @Published var studentGUID:String!
+    @Published var tutorGUID:String!
     @Published var time: String!
     @Published var timesAvailable:[String] = []
     @Published var tutorLocation:String!

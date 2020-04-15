@@ -15,12 +15,12 @@ struct AddClasses: View {
     let screenSize = UIScreen.main.bounds
     var body: some View {
         VStack {
-            Text("Add Classes").frame(width: screenSize.width, height: screenSize.width/6, alignment: .center).font(.system(size: 24, weight: .thin, design: .default)).foregroundColor(Color.yellow)
+            Text("Add Classes").font(.system(size: 32, weight: .thin, design: .default)).foregroundColor(Color.yellow).padding([.top])
             NavigationView {
                 List {
                     ForEach(self.classesListController.classTypeList, id: \.self) { cl in
                     NavigationLink(destination: AddClassesSub(classList: self.classesListController.classDic[cl]!)) {
-                            Text(cl)
+                        Text(cl).font(.system(size: 18, weight: .thin, design: .default)).foregroundColor(Color.gray)
                         }
                     }
                 }
@@ -56,7 +56,7 @@ struct AddClassesSub: View {
                         }
                         })
                 }) {
-                    Text(c)
+                    Text(c).font(.system(size: 18, weight: .thin, design: .default)).foregroundColor(Color.gray)
                 }
             }
         }
