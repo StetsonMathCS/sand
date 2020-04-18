@@ -1,6 +1,0 @@
-framework module Pods_sandy_sandyUITests {
-  umbrella header "Pods-sandy-sandyUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
