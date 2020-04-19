@@ -27,18 +27,9 @@ struct LoginView: View {
                 PasswordTextField(password: $password)
             }.padding([.leading, .trailing], 27.5)
             
-            Button(action: {
-                Auth.auth().signIn(withEmail: self.email, password: self.password)
-                { (result, error) in
-                    if error != nil
-                    {
-                        
-                    }
-                    
-                }
-                    
-                
-
+            Button(action:
+                {
+                    Login(email: self.email, password: self.password)
             }){
                 ButtonContent()
             }.padding(.top, 50)
@@ -92,6 +83,17 @@ struct ButtonContent : View {
             .background(Color.green)
             .cornerRadius(15.0)
             .shadow(radius: 10.0, x: 20, y: 10)
+    }
+}
+
+func Login(email: String, password: String) {
+    Auth.auth().signIn(withEmail: email, password: password) {
+        user, error in
+        if let error = error
+        {
+            print(error.localizedDescription)
+            return
+        }
     }
 }
 struct Login2_Previews: PreviewProvider {
