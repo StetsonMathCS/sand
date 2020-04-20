@@ -37,7 +37,7 @@ struct ClassesListView: View {
                     self.classesListController.retrieveClassList()
                     // add class
                 }) {
-                    Image(systemName: "plus.circle")
+                    Image("Add Icon")
                     .resizable()
                     .foregroundColor(Color.yellow) // change color if it's clicked
                     .frame(width: screenSize.width/15, height: screenSize.width/15)

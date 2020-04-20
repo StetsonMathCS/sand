@@ -10,45 +10,26 @@ import SwiftUI
 
 struct Settings: View {
     var body: some View {
-        
         NavigationView {
-            
             ZStack {
-                
                 HStack {
-                    
                     VStack(alignment: .leading, spacing: 45, content: {
-                    
                     NavigationLink(destination: ProfileView()) {
                         Image(systemName: Constants.settingsNavigation.profileButton).font(.largeTitle)
                         Text("Profile")
-                        
                     }
-                    
                     NavigationLink(destination: PaymentView()) {
                         Image(systemName: Constants.settingsNavigation.paymentButton).font(.largeTitle)
                         Text("Payment")
-                        
                     }
-                    
                     NavigationLink(destination: AboutView()) {
                         Image(systemName: Constants.settingsNavigation.aboutButton).font(.largeTitle)
                         Text("About")
-                        
                     }
-                    
-                    
-                    
                 }).foregroundColor(Color.black.opacity(0.5))
-                    
                     .navigationBarTitle("Settings")
-                    
                     Spacer()
-                    
-                        
-                }.padding()
-                
-                
+                }.padding() 
             }.frame(height: 175)
         }
     }

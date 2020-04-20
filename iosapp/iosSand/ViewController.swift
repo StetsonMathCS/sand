@@ -22,22 +22,23 @@ struct ViewController: View /*UIViewController, UITextFieldDelegate*/ {
     var body: some View {
         TabView (selection: $selected) {
             UpcomingSessionsView(reqController: self.reqController, classesListController: self.classesListController).tabItem({
-                Image(systemName: Constants.TabBarImageName.tabBar0)
-                    .font(.title)
+                Image("Home Icon")
                 Text("\(Constants.TabBarText.tabBar0)")
             }).tag(0)
             ClassesListView(classesListController: classesListController).tabItem({
-                Image(systemName: Constants.TabBarImageName.tabBar1)
+                Image("Book and Pencil")
                     .font(.title)
                 Text("\(Constants.TabBarText.tabBar1)")
             }).tag(1)
             Settings().tabItem({
-                Image(systemName: Constants.TabBarImageName.tabBar2)
+                Image("Settings Icon")
                     .font(.title)
                 Text("\(Constants.TabBarText.tabBar2)")
             }).tag(2)
-        }.accentColor(Color.yellow)
-        
+        }.onAppear() {
+            UITabBar.appearance().backgroundColor = .white
+        }
+        .accentColor(Color.black)
     }
 }
 
