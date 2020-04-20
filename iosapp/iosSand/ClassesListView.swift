@@ -13,10 +13,15 @@ import FirebaseDatabase
 struct ClassRowView: View {
     var classes:String
     var body: some View {
+        VStack {
+            Image("sampsonhall").resizable().foregroundColor(Color.gray).aspectRatio(contentMode: .fit)
         HStack {
-            Image(systemName: "desktopcomputer").resizable().frame(width: 40, height: 40).foregroundColor(Color.yellow).padding(.horizontal)
-            Text(classes).font(.system(size: 20, weight: .light, design: .default)).foregroundColor(Color.yellow)
-        }
+            Text(classes).font(.system(size: 20, weight: .thin, design: .default)).foregroundColor(Color.gray)
+            }
+        }.cornerRadius(10).shadow(color: Color.gray, radius: 5)
+        .overlay(
+           RoundedRectangle (cornerRadius: 10).stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.2), lineWidth: 1))
+           .padding([.top, .horizontal])
     }
 }
 
@@ -27,10 +32,11 @@ struct ClassesListView: View {
     //var classes:String
     //@State var currentClass:String = " "
     let screenSize = UIScreen.main.bounds
+    // Remove Line separators from list
     var body: some View {
         VStack {
             HStack {
-                EditButton()
+                EditButton().foregroundColor(Color.yellow)
                 Text("My Classes").font(.system(size: 36, weight: .thin, design: .default)).foregroundColor(Color.yellow).padding(.horizontal, 40)//.background(Color.yellow)
                 Button(action: {
                     self.showDetailForm.toggle()
@@ -48,8 +54,8 @@ struct ClassesListView: View {
             }.frame(width: screenSize.width, height: screenSize.width/6, alignment: .center)
             List {
                 ForEach(ClassesListController.studentList, id: \.self) { studentClass in
-                //ClassRowView(classes: student)
-                Text(studentClass).font(.system(size: 20, weight: .light, design: .default)).foregroundColor(Color.yellow)
+                ClassRowView(classes: studentClass)
+//                Text(studentClass).font(.system(size: 20, weight: .light, design: .default)).foregroundColor(Color.yellow)
                 //currentClass = studentClass
                 }.onDelete(perform: deleteItem).onLongPressGesture {
                     print("long press")
