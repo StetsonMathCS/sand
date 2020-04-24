@@ -12,16 +12,12 @@ import FirebaseDatabase
 
 struct ClassRowView: View {
     var classes:String
+    let screenSize = UIScreen.main.bounds
     var body: some View {
-        VStack {
-            Image("sampsonhall").resizable().foregroundColor(Color.gray).aspectRatio(contentMode: .fit)
         HStack {
+            Image("sampsonhall").resizable().foregroundColor(Color.gray).frame(width: self.screenSize.width*0.15, height: self.screenSize.width*0.15).clipShape(Circle()).padding([.horizontal, .vertical])
             Text(classes).font(.system(size: 20, weight: .thin, design: .default)).foregroundColor(Color.gray)
-            }
-        }.cornerRadius(10).shadow(color: Color.gray, radius: 5)
-        .overlay(
-           RoundedRectangle (cornerRadius: 10).stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.2), lineWidth: 1))
-           .padding([.top, .horizontal])
+        }
     }
 }
 
@@ -54,9 +50,8 @@ struct ClassesListView: View {
             }.frame(width: screenSize.width, height: screenSize.width/6, alignment: .center)
             List {
                 ForEach(ClassesListController.studentList, id: \.self) { studentClass in
-                ClassRowView(classes: studentClass)
-//                Text(studentClass).font(.system(size: 20, weight: .light, design: .default)).foregroundColor(Color.yellow)
-                //currentClass = studentClass
+                    ClassRowView(classes: studentClass)
+                    //Text(studentClass).font(.system(size: 20, weight: .thin, design: .default)).foregroundColor(Color.gray)
                 }.onDelete(perform: deleteItem).onLongPressGesture {
                     print("long press")
                     self.showReqForm.toggle()

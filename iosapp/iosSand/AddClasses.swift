@@ -15,7 +15,8 @@ struct AddClasses: View {
     let screenSize = UIScreen.main.bounds
     var body: some View {
         VStack {
-            Text("Add Classes").font(.system(size: 32, weight: .thin, design: .default)).foregroundColor(Color.yellow).padding([.top])
+            RoundedRectangle(cornerRadius: 10).background(Color.gray).opacity(0.1).frame(width: UIScreen.main.bounds.width/4, height: 5).padding([.vertical])
+            Text("Add Classes").font(.system(size: 32, weight: .thin, design: .default)).foregroundColor(Color.yellow)
             NavigationView {
                 List {
                     ForEach(self.classesListController.classTypeList, id: \.self) { cl in
@@ -31,6 +32,7 @@ struct AddClasses: View {
 
 struct AddClassesSub: View {
     var classList:[String]
+    @State private var showingAlert = false
     
     var body: some View {
         List {
@@ -55,8 +57,11 @@ struct AddClassesSub: View {
                             //ClassesListController.studentList.append(s)
                         }
                         })
+                    self.showingAlert = true
                 }) {
                     Text(c).font(.system(size: 18, weight: .thin, design: .default)).foregroundColor(Color.gray)
+                }.alert(isPresented: self.$showingAlert) {
+                    Alert(title: Text("Class Added"), dismissButton: .default(Text("OK")))
                 }
             }
         }
