@@ -36,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.classesListController = ClassesListController()
         self.loginPageController = LoginPageController()
         if Auth.auth().currentUser != nil {
-            //self.classesListController.retrieveAllData(studentGUID: "QLBZL3CdweWYFrlbwEaSc5wnEK12")
+            self.classesListController.retrieveAllData(studentGUID: "QLBZL3CdweWYFrlbwEaSc5wnEK12")
         }
         
 //        let classesListController: ClassesListController = ClassesListController()

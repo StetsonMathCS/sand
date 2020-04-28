@@ -119,7 +119,7 @@ struct MakeRequestView: View {
         }
         request[uuid]!["group"] = self.group
         request[uuid]!["matched"] = false
-        request[uuid]!["studentGUID"] = SceneDelegate.GUID
+        request[uuid]!["studentGUID"] = AppDelegate.shared().getAuthId()
         request[uuid]!["tutorGUID"] = ""
         request[uuid]!["time"] = ""
         var tempTimeList:[String] = []

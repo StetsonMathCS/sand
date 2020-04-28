@@ -50,7 +50,9 @@ struct ClassesListView: View {
             }.frame(width: screenSize.width, height: screenSize.width/6, alignment: .center)
             List {
                 ForEach(ClassesListController.studentList, id: \.self) { studentClass in
+                    //if studentClass != "" {
                     ClassRowView(classes: studentClass)
+                    
                     //Text(studentClass).font(.system(size: 20, weight: .thin, design: .default)).foregroundColor(Color.gray)
                 }.onDelete(perform: deleteItem).onLongPressGesture {
                     print("long press")

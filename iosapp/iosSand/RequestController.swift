@@ -16,6 +16,9 @@ class RequestController: ObservableObject {
     
     func buildRequestList() {
         AppDelegate.shared().requestList.queryOrdered(byChild: "studentGUID").queryEqual(toValue: AppDelegate.shared().getAuthId()).observe(.value, with: { snap in
+            if snap == nil {return}
+            if snap.value == nil {return}
+            if !(snap.value is NSNull) {
             var reqs = snap.value as! Dictionary<String, Dictionary<String, Any>>
             print(reqs)
             //var req = Request()
@@ -51,6 +54,7 @@ class RequestController: ObservableObject {
                 }
                 }
                 self.reqList.append(req)
+                }
             }
             //print(req)
             //self.reqList.append(req)
