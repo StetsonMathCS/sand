@@ -34,6 +34,11 @@ class LoginPageController: ObservableObject
     {
         Auth.auth().signIn(withEmail: email, password: password, completion: handler)
     }
+    
+    func signUp(email: String, password: String, handler: @escaping AuthDataResultCallback)
+    {
+        Auth.auth().createUser(withEmail: email, password: password, completion: handler)
+    }
 
 }
 struct User

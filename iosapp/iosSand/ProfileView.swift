@@ -17,6 +17,11 @@ struct ProfileView: View {
                    Text("Login")
                     .font(.largeTitle).foregroundColor(Color.blue)
                 }
+                NavigationLink(destination: SignUpView())
+                {
+                   Text("Sign Up")
+                    .font(.largeTitle).foregroundColor(Color.blue)
+                }
                 Text("Sign Out")
         }
 
