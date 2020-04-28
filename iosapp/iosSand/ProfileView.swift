@@ -10,12 +10,22 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-        Text("Sign Out")
+        NavigationView {
+            VStack() {
+                NavigationLink(destination: LoginView())
+                {
+                   Text("Login")
+                    .font(.largeTitle).foregroundColor(Color.blue)
+                }
+                Text("Sign Out")
+        }
+
+        }
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
-    }
-}
+//struct ProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileView()
+//    }
+//}

@@ -36,13 +36,7 @@ struct SignUpView: View {
             }.padding(.top, 50)
             
             Spacer()
-            HStack(spacing: 0) {
-                Text("Don't have an account? ")
-                Button(action: {}) {
-                    Text("Sign Up")
-                        .foregroundColor(.black)
-                }
-            }
+       
         }
     
         .background(

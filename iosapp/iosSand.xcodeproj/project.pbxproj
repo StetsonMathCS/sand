@@ -16,7 +16,7 @@
 		3C4E45362429337A00EF28A3 /* RequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E452E2429337900EF28A3 /* RequestController.swift */; };
 		3C4E45372429337A00EF28A3 /* ClassesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E452F2429337900EF28A3 /* ClassesListView.swift */; };
 		3C4E45382429337A00EF28A3 /* ClassesListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E45302429337A00EF28A3 /* ClassesListController.swift */; };
-		3C4E453A2429337A00EF28A3 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E45322429337A00EF28A3 /* LoginPageViewController.swift */; };
+		3C4E453A2429337A00EF28A3 /* LoginPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E45322429337A00EF28A3 /* LoginPageController.swift */; };
 		3C4E453B2429337A00EF28A3 /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E45332429337A00EF28A3 /* SessionDetailView.swift */; };
 		3C4E453C2429337A00EF28A3 /* UpcomingSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E45342429337A00EF28A3 /* UpcomingSessionView.swift */; };
 		3C8C313D242E3F3B0020F309 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C8C313C242E3F3B0020F309 /* GoogleService-Info.plist */; };
@@ -44,7 +44,7 @@
 		3C4E452E2429337900EF28A3 /* RequestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestController.swift; sourceTree = "<group>"; };
 		3C4E452F2429337900EF28A3 /* ClassesListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesListView.swift; sourceTree = "<group>"; };
 		3C4E45302429337A00EF28A3 /* ClassesListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesListController.swift; sourceTree = "<group>"; };
-		3C4E45322429337A00EF28A3 /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
+		3C4E45322429337A00EF28A3 /* LoginPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageController.swift; sourceTree = "<group>"; };
 		3C4E45332429337A00EF28A3 /* SessionDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
 		3C4E45342429337A00EF28A3 /* UpcomingSessionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingSessionView.swift; sourceTree = "<group>"; };
 		3C8C313C242E3F3B0020F309 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 				3C4E45302429337A00EF28A3 /* ClassesListController.swift */,
 				3C4E452F2429337900EF28A3 /* ClassesListView.swift */,
 				483ACD8C24327296003E2DE6 /* MakeRequestView.swift */,
-				3C4E45322429337A00EF28A3 /* LoginPageViewController.swift */,
+				3C4E45322429337A00EF28A3 /* LoginPageController.swift */,
 				3C40532424326C6100C4E713 /* AddClasses.swift */,
 				5986878B244C9B5600CA123A /* LoginPage.swift */,
 				5986878E244C9C8800CA123A /* SignUpView.swift */,
@@ -281,7 +281,7 @@
 				3C4E451B242932EB00EF28A3 /* AppDelegate.swift in Sources */,
 				C404992F2434DD8D009D7AEA /* Settings.swift in Sources */,
 				C40499352434E7A2009D7AEA /* SceneDelegate.swift in Sources */,
-				3C4E453A2429337A00EF28A3 /* LoginPageViewController.swift in Sources */,
+				3C4E453A2429337A00EF28A3 /* LoginPageController.swift in Sources */,
 				C4049947243522ED009D7AEA /* ProfileView.swift in Sources */,
 				C40499402434FCF0009D7AEA /* ViewController.swift in Sources */,
 				3C4E453C2429337A00EF28A3 /* UpcomingSessionView.swift in Sources */,

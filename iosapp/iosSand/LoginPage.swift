@@ -13,6 +13,7 @@ struct LoginView: View {
     // MARK: - Propertiers
     @State private var email = ""
     @State private var password = ""
+    @ObservedObject var loginPageController = LoginPageController()
     
     // MARK: - View
     var body: some View {
@@ -27,10 +28,7 @@ struct LoginView: View {
                 PasswordTextField(password: $password)
             }.padding([.leading, .trailing], 27.5)
             
-            Button(action:
-                {
-                    Login(email: self.email, password: self.password)
-            }){
+            Button(action:{self.Login()}){
                 ButtonContent()
             }.padding(.top, 50)
             
@@ -49,8 +47,28 @@ struct LoginView: View {
                 .edgesIgnoringSafeArea(.all))
         
     }
+    func Login() {
+        loginPageController.signIn(email:  self.email, password: self.password)
+        { (result, error) in
+            if error != nil
+            {
+                print("Error when signing in: \(error)")
+            }
+            else
+            {
+                print("login successful")
+                
+            }
+            
+        }
+    }
 }
 
+struct SuccessfulLogin : View {
+    var body: some View {
+        Text("Login Successful")
+    }
+}
 struct UsernameTextField : View {
     @Binding var email: String
     var body: some View {
@@ -86,18 +104,9 @@ struct ButtonContent : View {
     }
 }
 
-func Login(email: String, password: String) {
-    Auth.auth().signIn(withEmail: email, password: password) {
-        user, error in
-        if let error = error
-        {
-            print(error.localizedDescription)
-            return
-        }
-    }
-}
-struct Login2_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
-    }
-}
+
+//struct Login2_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LoginView()
+//    }
+//}

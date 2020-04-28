@@ -15,6 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var reqController:RequestController!
     var classesListController:ClassesListController!
+    var loginPageController:LoginPageController!
     var window: UIWindow?
 
 
@@ -33,14 +34,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        self.reqController.retrieveAllData()
         self.reqController.buildRequestList()
         self.classesListController = ClassesListController()
+        self.loginPageController = LoginPageController()
         self.classesListController.retrieveAllData(studentGUID: "QLBZL3CdweWYFrlbwEaSc5wnEK12")
+        
         
 //        let classesListController: ClassesListController = ClassesListController()
 //        // Pass in studentGUID dynamically later on
 //        classesListController.retrieveAllData(studentGUID: "d076fafd-9da8-4db9-86e4-b21a128d80be")
         
         let contentView = ViewController(reqController: self.reqController, classesListController: self.classesListController)//UpcomingSessionsView(reqController: self.reqController)
-        
+//        if let windowScene = scene as? UIWindowScene {
+//            let window = UIWindow(windowScene: windowScene)
+//            window.rootViewController = UIHostingController(rootView: contentView)
+//            self.window = window
+//            window.makeKeyAndVisible()
+//        }
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: contentView)
