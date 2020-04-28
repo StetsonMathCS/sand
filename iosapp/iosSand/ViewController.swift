@@ -8,6 +8,7 @@
 
 //import UIKit
 import SwiftUI
+import Firebase
 
 struct ViewController: View /*UIViewController, UITextFieldDelegate*/ {
     @ObservedObject var reqController:RequestController
@@ -16,10 +17,13 @@ struct ViewController: View /*UIViewController, UITextFieldDelegate*/ {
     @State var page:String = "Upcoming Sessions"
     let screenSize = UIScreen.main.bounds
     @Environment(\.colorScheme) var colorScheme
+    @State var user:Bool
     
     @State var selected = 3
     
     var body: some View {
+        VStack {
+        if user {
         TabView (selection: $selected) {
             UpcomingSessionsView(reqController: self.reqController, classesListController: self.classesListController).tabItem({
                 Image("Home Icon")
@@ -37,8 +41,22 @@ struct ViewController: View /*UIViewController, UITextFieldDelegate*/ {
             }).tag(2)
         }.onAppear() {
             UITabBar.appearance().backgroundColor = .white
+        }.accentColor(Color.black)
         }
-        .accentColor(Color.black)
+        if !user {
+            LoginView(user: $user)
+        }
+        }
+        //Text("Hi")
+    }
+    
+    func doHaveUser() -> Bool {
+        if Auth.auth().currentUser != nil {
+            user = true
+            return true
+        }
+        user = false
+        return false
     }
 }
 

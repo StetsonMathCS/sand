@@ -13,7 +13,9 @@ struct LoginView: View {
     // MARK: - Propertiers
     @State private var email = ""
     @State private var password = ""
+    @State private var signUpModal:Bool = false
     @ObservedObject var loginPageController = LoginPageController()
+    @Binding var user:Bool
     
     // MARK: - View
     var body: some View {
@@ -35,9 +37,13 @@ struct LoginView: View {
             Spacer()
             HStack(spacing: 0) {
                 Text("Don't have an account? ")
-                Button(action: {}) {
+                Button(action: {
+                    self.signUpModal.toggle()
+                }) {
                     Text("Sign Up")
                         .foregroundColor(.black)
+                }.sheet(isPresented: $signUpModal) {
+                    SignUpView(signUpModal: self.$signUpModal)
                 }
             }
         }
@@ -56,6 +62,7 @@ struct LoginView: View {
             }
             else
             {
+                self.user.toggle()
                 print("login successful")
                 
             }
@@ -66,6 +73,7 @@ struct LoginView: View {
 
 struct SignUpView : View {
     // MARK: - Propertiers
+    @Binding var signUpModal:Bool
     @State var email = ""
     @State var password = ""
     @State var confPassword = ""
@@ -94,10 +102,12 @@ struct SignUpView : View {
                 UsernameTextField(email: $email)
                 PasswordTextField(password: $password)
                 ConfPasswordTextField(confPassword: $confPassword)
-                if validated {
-                    Button(action:{self.signUp()}){
-                        SignUpButtonContent()
+                Button(action:{
+                    if self.validated {
+                        self.signUp()
                     }
+                }){
+                    SignUpButtonContent()
                 }
                 
             }.padding([.leading, .trailing], 27.5)
@@ -115,6 +125,7 @@ struct SignUpView : View {
             }
             else
             {
+                self.signUpModal.toggle()
                 print("sign up successful")
             }
         }
@@ -173,7 +184,7 @@ struct PasswordTextField : View {
 struct ConfPasswordTextField : View {
     @Binding var confPassword: String
     var body: some View {
-        SecureField("Password", text: $confPassword)
+        SecureField("Confirm password", text: $confPassword)
             .padding()
             .background(Color.white)
             .cornerRadius(20.0)

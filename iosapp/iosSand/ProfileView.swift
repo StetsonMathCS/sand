@@ -12,16 +12,16 @@ struct ProfileView: View {
     var body: some View {
         NavigationView {
             VStack() {
-                NavigationLink(destination: LoginView())
-                {
-                   Text("Login")
-                    .font(.largeTitle).foregroundColor(Color.blue)
-                }
-                NavigationLink(destination: SignUpView())
-                {
-                   Text("Sign Up")
-                    .font(.largeTitle).foregroundColor(Color.blue)
-                }
+//                NavigationLink(destination: LoginView())
+//                {
+//                   Text("Login")
+//                    .font(.largeTitle).foregroundColor(Color.blue)
+//                }
+//                NavigationLink(destination: SignUpView())
+//                {
+//                   Text("Sign Up")
+//                    .font(.largeTitle).foregroundColor(Color.blue)
+//                }
                 Text("Sign Out")
         }
 

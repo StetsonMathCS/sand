@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -42,7 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        // Pass in studentGUID dynamically later on
 //        classesListController.retrieveAllData(studentGUID: "d076fafd-9da8-4db9-86e4-b21a128d80be")
         
-        let contentView = ViewController(reqController: self.reqController, classesListController: self.classesListController)//UpcomingSessionsView(reqController: self.reqController)
+        let contentView = ViewController(reqController: self.reqController, classesListController: self.classesListController, user: doHaveUser())//UpcomingSessionsView(reqController: self.reqController)
 //        if let windowScene = scene as? UIWindowScene {
 //            let window = UIWindow(windowScene: windowScene)
 //            window.rootViewController = UIHostingController(rootView: contentView)
@@ -55,6 +56,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
+    }
+    
+    func doHaveUser() -> Bool {
+        if Auth.auth().currentUser != nil {
+            //user = true
+            return true
+        }
+        //user = false
+        return false
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
