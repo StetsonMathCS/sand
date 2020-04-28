@@ -15,7 +15,7 @@ class RequestController: ObservableObject {
     @Published var locationList:[Request] = []
     
     func buildRequestList() {
-        AppDelegate.shared().requestList.queryOrdered(byChild: "studentGUID").queryEqual(toValue: SceneDelegate.GUID).observe(.value, with: { snap in
+        AppDelegate.shared().requestList.queryOrdered(byChild: "studentGUID").queryEqual(toValue: AppDelegate.shared().getAuthId()).observe(.value, with: { snap in
             var reqs = snap.value as! Dictionary<String, Dictionary<String, Any>>
             print(reqs)
             //var req = Request()

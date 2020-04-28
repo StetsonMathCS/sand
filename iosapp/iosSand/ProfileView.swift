@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ProfileView: View {
     var body: some View {
@@ -22,7 +23,15 @@ struct ProfileView: View {
 //                   Text("Sign Up")
 //                    .font(.largeTitle).foregroundColor(Color.blue)
 //                }
+                Button(action: {
+                    do {
+                        try Auth.auth().signOut()
+                    } catch {
+                        print("error")
+                    }
+                }) {
                 Text("Sign Out")
+                }
         }
 
         }

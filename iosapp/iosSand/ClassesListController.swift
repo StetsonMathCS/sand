@@ -20,7 +20,7 @@ class ClassesListController: ObservableObject {
     
     func retrieveFirebaseData(studentGUID: String) {
         print(studentGUID)
-        AppDelegate.shared().studentList.child(studentGUID).child("classes").observe(.value, with: { snapshot in
+        AppDelegate.shared().studentList.child(AppDelegate.shared().getAuthId()).child("classes").observe(.value, with: { snapshot in
             ClassesListController.studentList = []
             self.displayStudentList = []
             for s in snapshot.value as! [String] {

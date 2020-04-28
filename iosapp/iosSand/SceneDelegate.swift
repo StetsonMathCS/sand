@@ -30,14 +30,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        var request2: Request = Request(request: "req2", matched: false, classRequest: "", time: "", location: "")
         
         self.reqController = RequestController()
-//        self.reqController.reqList.append(request1)
-//        self.reqController.reqList.append(request2)
-//        self.reqController.retrieveAllData()
-        self.reqController.buildRequestList()
+        if Auth.auth().currentUser != nil {
+            self.reqController.buildRequestList()
+        }
         self.classesListController = ClassesListController()
         self.loginPageController = LoginPageController()
-        self.classesListController.retrieveAllData(studentGUID: "QLBZL3CdweWYFrlbwEaSc5wnEK12")
-        
+        if Auth.auth().currentUser != nil {
+            //self.classesListController.retrieveAllData(studentGUID: "QLBZL3CdweWYFrlbwEaSc5wnEK12")
+        }
         
 //        let classesListController: ClassesListController = ClassesListController()
 //        // Pass in studentGUID dynamically later on

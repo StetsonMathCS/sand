@@ -42,6 +42,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         static func shared() -> AppDelegate {
             return UIApplication.shared.delegate as! AppDelegate
         }
+    
+            func getAuthId() -> String {
+                return (Auth.auth().currentUser?.uid)!
+            }
+    
     }
 
     // MARK: UISceneSession Lifecycle

@@ -38,8 +38,8 @@ struct AddClassesSub: View {
         List {
             ForEach(classList, id: \.self) { c in
                 Button(action : {
-                    let ref:DatabaseReference = AppDelegate.shared().studentList.child(SceneDelegate.GUID)
-                    AppDelegate.shared().studentList.child(SceneDelegate.GUID).child("classes").observeSingleEvent(of: .value, with: { snapshot in
+                    let ref:DatabaseReference = AppDelegate.shared().studentList.child(AppDelegate.shared().getAuthId())
+                    AppDelegate.shared().studentList.child(AppDelegate.shared().getAuthId()).child("classes").observeSingleEvent(of: .value, with: { snapshot in
                         for s in snapshot.value as! [String] {
                             var refExist:Bool = false
                             var toSetRef:[String] = []

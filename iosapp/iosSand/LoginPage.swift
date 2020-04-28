@@ -11,6 +11,8 @@ import Firebase
 
 struct LoginView: View {
     // MARK: - Propertiers
+    @ObservedObject var reqController:RequestController
+    let classesListController:ClassesListController
     @State private var email = ""
     @State private var password = ""
     @State private var signUpModal:Bool = false
@@ -63,6 +65,8 @@ struct LoginView: View {
             else
             {
                 self.user.toggle()
+                self.reqController.buildRequestList()
+                //self.classesListController.retrieveAllData(studentGUID: "")
                 print("login successful")
                 
             }
@@ -127,8 +131,18 @@ struct SignUpView : View {
             {
                 self.signUpModal.toggle()
                 print("sign up successful")
+                var tempDic:Dictionary<String, Any> = [:]
+                tempDic["classes"] = []
+                tempDic["email"] = self.$email
+                tempDic["firstName"] = self.$firstName
+                tempDic["lastName"] = self.$lastName
+                AppDelegate.shared().studentList.child(self.getAuthId()).setValue(tempDic)
             }
         }
+    }
+    
+    func getAuthId() -> String {
+        return (Auth.auth().currentUser?.uid)!
     }
     
 }

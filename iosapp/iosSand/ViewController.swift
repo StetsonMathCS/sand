@@ -42,9 +42,9 @@ struct ViewController: View /*UIViewController, UITextFieldDelegate*/ {
         }.onAppear() {
             UITabBar.appearance().backgroundColor = .white
         }.accentColor(Color.black)
-        }
+            }
         if !user {
-            LoginView(user: $user)
+            LoginView(reqController: self.reqController, classesListController: self.classesListController, user: $user)
         }
         }
         //Text("Hi")
