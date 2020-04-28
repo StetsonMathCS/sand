@@ -131,12 +131,15 @@ struct SignUpView : View {
             {
                 self.signUpModal.toggle()
                 print("sign up successful")
-                var tempDic:Dictionary<String, Any> = [:]
-                tempDic["classes"] = []
-                tempDic["email"] = self.$email
-                tempDic["firstName"] = self.$firstName
-                tempDic["lastName"] = self.$lastName
-                AppDelegate.shared().studentList.child(self.getAuthId()).setValue(tempDic)
+//                var tempDic:Dictionary<String, Any> = [:]
+//                tempDic["classes"] = []
+//                tempDic["email"] = self.$email
+//                tempDic["firstName"] = self.$firstName
+//                tempDic["lastName"] = self.$lastName
+//                var tempDic2:Dictionary<String, Any> = [:]
+//                tempDic2[self.getAuthId()] = tempDic
+//                //AppDelegate.shared().studentList.child(self.getAuthId()).setValue(tempDic)
+//                AppDelegate.shared().studentList.updateChildValues(tempDic2)
             }
         }
     }
