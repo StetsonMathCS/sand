@@ -13,8 +13,8 @@ class Tutor
     public $password;
     public $uid;
     public $courses;
-    public $availableFrom;
-    public $availableUpto;
+    public $classTimeBegin;
+    public $classTimeEnd;
     public $location;
     public $rating;
 
@@ -37,33 +37,33 @@ class Tutor
     /**
      * @return mixed
      */
-    public function getAvailableFrom()
+    public function getClassTimeBegin()
     {
-        return $this->availableFrom;
+        return $this->classTimeBegin;
     }
 
     /**
-     * @param mixed $availableFrom
+     * @param mixed $classTimeBegin
      */
-    public function setAvailableFrom($availableFrom): void
+    public function setClassTimeBegin($classTimeBegin): void
     {
-        $this->availableFrom = $availableFrom;
+        $this->classTimeBegin = $classTimeBegin;
     }
 
     /**
      * @return mixed
      */
-    public function getAvailableUpto()
+    public function getClassTimeEnd()
     {
-        return $this->availableUpto;
+        return $this->classTimeEnd;
     }
 
     /**
-     * @param mixed $availableUpto
+     * @param mixed $classTimeEnd
      */
-    public function setAvailableUpto($availableUpto): void
+    public function setClassTimeEnd($classTimeEnd): void
     {
-        $this->availableUpto= $availableUpto;
+        $this->classTimeEnd= $classTimeEnd;
     }
 
     /**
@@ -184,18 +184,6 @@ class Tutor
      */
     public function getAvailability()
     {
-        if($this->availableFrom != null && $this->availableUpto != null) {
-            return "$this->availableFrom to $this->availableUpto";
-        }
-
-        if($this->availableFrom != null) {
-            return $this->availableFrom;
-        }
-
-        if($this->availableUpto != null) {
-            return $this->availableUpto;
-        }
-
         return "";
     }
 }

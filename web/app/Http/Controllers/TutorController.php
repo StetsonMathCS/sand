@@ -52,11 +52,11 @@ class TutorController extends Controller
             if($ref->getChild($key)->getSnapshot()->hasChild("rating")) {
                 $tutor->setRating($obj['rating']);
             }
-            if($ref->getChild($key)->getSnapshot()->hasChild("availableFrom")) {
-                $tutor->setAvailableFrom($obj['availableFrom']);
+            if($ref->getChild($key)->getSnapshot()->hasChild("classTimeBegin")) {
+                $tutor->setClassTimeBegin($obj['classTimeBegin']);
             }
-            if($ref->getChild($key)->getSnapshot()->hasChild("availableUpto")) {
-                $tutor->setAvailableUpto($obj['availableUpto']);
+            if($ref->getChild($key)->getSnapshot()->hasChild("classTimeEnd")) {
+                $tutor->setClassTimeEnd($obj['classTimeEnd']);
             }
 
             $location = new Location();
@@ -102,8 +102,8 @@ class TutorController extends Controller
             "lastName" => request('lastName'),
             "password" => request('password'),
             "email" => request('email'),
-            "availableFrom" => request('availableFrom'),
-            "availableUpto" => request('availableUpto'),
+            "classTimeBegin" => request('classTimeBegin'),
+            "classTimeEnd" => request('classTimeEnd'),
              "location" => [
                 "streetAddress" => request('streetAddress'),
                 "city" => request('city'),
@@ -141,19 +141,33 @@ class TutorController extends Controller
         if($user == null) {
             echo 'Invalid User';
         }
-        //Create student record
-        $ref = $database->getReference("tutors");
-        $ref->getChild($uid)->set([
+        //Create tutor record
+
+        $tutorData = [
             "userName" => request('username'),
             "firstName" => request('firstName'),
             "lastName" => request('lastName'),
             "password" => request('password'),
             "email" => request('email'),
-            "availableFrom" => request('availableFrom'),
-            "availableUpto" => request('availableUpto'),
-            "location" => request('location'),
-            "courses" => request('courses')
-        ]);
+            "classTimeBegin" => request('classTimeBegin'),
+            "classTimeEnd" => request('classTimeEnd'),
+            "location" => request('location')
+        ];
+        //get selectedCourse Option
+        $selectedCourse = request('selectedCourse');
+        if($selectedCourse == "other") {
+            //get the course code
+            $courseCode = request('otherCourseCode');
+            $courseTitle = request('otherCourseTitle');
+            $tutorData['courses'] = [$courseCode];
+
+            $this->createCourse($courseCode, $courseTitle);
+        }
+        elseif(strlen($selectedCourse) > 0) {
+            $tutorData['courses'] = [$selectedCourse];
+        }
+        $ref = $database->getReference("tutors");
+        $ref->getChild($uid)->set($tutorData);
 
         //Create role
         $ref = $database->getReference("roles");
@@ -165,5 +179,25 @@ class TutorController extends Controller
             "status"=> "success"
         ];
         return response()->json($data, 200);
+    }
+
+    function isCourseAvailable($courseCode) {
+        $factory = (new Factory)->withServiceAccount(__DIR__ . '/myapp.json');
+        $database = $factory->createDatabase();
+        $ref = $database->getReference("courses/$courseCode");
+        $courseSnap = $ref->getSnapshot();
+        return $courseSnap->exists();
+    }
+
+    function createCourse($courseCode, $courseTitle) {
+        if(!$this->isCourseAvailable($courseCode)) {
+            //Create a course as it's not available
+            $factory = (new Factory)->withServiceAccount(__DIR__ . '/myapp.json');
+            $database = $factory->createDatabase();
+            $ref = $database->getReference("courses");
+            $ref->getChild($courseCode)->set([
+                "title" => $courseTitle
+            ]);
+        }
     }
 }

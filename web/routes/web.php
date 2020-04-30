@@ -12,6 +12,9 @@
 */
 
 // Route::get("/", "StudentController@index");
+
+use App\Http\Controllers\RequestController;
+
 Route::get('/', function () {
     return view('login');
 });
@@ -21,7 +24,8 @@ Route::get('/signup-student', function () {
 });
 
 Route::get('/signup-tutor', function () {
-    return view('signup_tutor');
+    return view('signup_tutor')
+    ->with("courses", (new RequestController())->getAllCourses());
 });
 
 Route::get('/logout', function () {

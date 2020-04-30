@@ -36,8 +36,8 @@
                 </div>
 
                 <div  class="validate-input" data-validate = "">
-                    <select class="form-control" id="availableFrom"  required="required" name="availableFrom">
-                        <option value="">Select Available From:</option>
+                    <select class="form-control" id="classTimeBegin"  required="required" name="classTimeBegin">
+                        <option value="">Class Time Begin:</option>
                         <option value="08:00">08:00</option>
                         <option value="08:30">08:30</option>
                         <option value="09:00">09:00</option>
@@ -64,8 +64,8 @@
                 </div>
                 <br>
                 <div  class="validate-input" data-validate = "">
-                    <select class="form-control" id="availableUpto"  required="required" name="availableUpto">
-                        <option value="">Select Available Upto:</option>
+                    <select class="form-control" id="classTimeEnd"  required="required" name="classTimeEnd">
+                        <option value="">Class Time End:</option>
                         <option value="08:00">08:00</option>
                         <option value="08:30">08:30</option>
                         <option value="09:00">09:00</option>
@@ -110,16 +110,25 @@
                     <input id="zipCode" class="input100" type="text" name="zipCode">
                     <span class="focus-input100" data-placeholder="Enter ZipCode"></span>
                 </div>
-
-                <div>
-                    <p>select course</p>
-                    <ul class="listing">
-						<li><input id="math-101" type="checkbox" name="fruit" value="Math101"> Math 101</li>
-						<li><input id="cs-101" type="checkbox" name="fruit" value="CS101"> Introduction to Computing</li>
-						<li><input id="cs-102" type="checkbox" name="fruit" value="CS102"> Introduction to Programming</li>
-					</ul>
+                <div class="validate-input" data-validate = "">
+                    <select class="form-control" id="course"  required="required" name="course" onchange="onSelectCourseChanged()">
+                        <option value="">Select Course:</option>
+                        @for($i=0; $i<count($courses); $i++)
+                            <option value="{{$courses[$i]->getCode()}}">{{$courses[$i]->getTitle()}}</option>
+                        @endfor
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <br>
+                <div class="wrap-input100 validate-input" data-validate = "">
+                    <input id="courseCode" class="input100" type="text" name="courseCode" disabled=true>
+                    <span class="focus-input100" data-placeholder="Enter Course"></span>
                 </div>
 
+                <div class="wrap-input100 validate-input" data-validate = "">
+                    <input id="courseTitle" class="input100" type="text" name="courseTitle" disabled=true>
+                    <span class="focus-input100" data-placeholder="Enter Course Title"></span>
+                </div>
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
@@ -184,24 +193,28 @@
             var firstName = document.querySelector('#firstname').value;
             var lastName = document.querySelector('#lastname').value;
             var email = document.querySelector('#email').value;
-            var availableFrom = document.querySelector('#availableFrom').value;
-            var availableUpto = document.querySelector('#availableUpto').value;
+            var classTimeBegin = document.querySelector('#classTimeBegin').value;
+            var classTimeEnd = document.querySelector('#classTimeEnd').value;
             var location = {};
             location.streetAddress = document.querySelector('#streetAddress').value;
             location.city = document.querySelector('#city').value;
             location.state = document.querySelector('#state').value;
             location.zipCode = document.querySelector('#zipCode').value;
 
-            var courses = {};
-            if(document.querySelector('#math-101').checked){
-                courses.Math101 = true;
-            }
-            if(document.querySelector('#cs-101').checked){
-                courses.CS101 = true;
-            }
-            if(document.querySelector('#cs-102').checked){
-                courses.CS102 = true;
-            }
+            var selectedCourse = document.querySelector("#course").value;
+            var otherCourseCode = document.querySelector('#courseCode').value;
+            var otherCourseTitle = document.querySelector('#courseTitle').value;
+
+            // var courses = {};
+            // if(document.querySelector('#math-101').checked){
+            //     courses.Math101 = true;
+            // }
+            // if(document.querySelector('#cs-101').checked){
+            //     courses.CS101 = true;
+            // }
+            // if(document.querySelector('#cs-102').checked){
+            //     courses.CS102 = true;
+            // }
             firebase.auth().currentUser.getIdToken().then((idToken) => {
                 // Pass the ID token to the server along with data
                 $.post(
@@ -213,10 +226,12 @@
                         firstName: firstName,
                         lastName: lastName,
                         email: email,
-                        availableFrom: availableFrom,
-                        availableUpto: availableUpto,
+                        classTimeBegin: classTimeBegin,
+                        classTimeEnd: classTimeEnd,
                         location: location,
-                        courses: courses
+                        selectedCourse: selectedCourse,
+                        otherCourseCode: otherCourseCode,
+                        otherCourseTitle: otherCourseTitle
                     },
                     (data, status) => {
                         if (status == 'success' && data) {
@@ -238,6 +253,21 @@
                 firebase.auth().signOut();
                 window.location = "/";
             });
+        }
+
+        function onSelectCourseChanged() {
+            console.log("Select course changed");
+            var courseVal = document.querySelector('#course').value;
+            if(courseVal == "other") {
+                //Enable to add new course
+                document.querySelector('#courseCode').disabled = false;
+                document.querySelector('#courseTitle').disabled = false;
+            }
+            else {
+                //Disable to add new course
+               document.querySelector('#courseCode').disabled = true;
+                document.querySelector('#courseTitle').disabled = true;
+            }
         }
     </script>
 @endsection

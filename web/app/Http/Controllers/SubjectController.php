@@ -106,11 +106,11 @@ class SubjectController extends Controller
             if($ref->getChild($key)->getSnapshot()->hasChild("rating")) {
                 $tutor->setRating($obj['rating']);
             }
-            if($ref->getChild($key)->getSnapshot()->hasChild("availableFrom")) {
-                $tutor->setAvailableFrom($obj['availableFrom']);
+            if($ref->getChild($key)->getSnapshot()->hasChild("classTimeBegin")) {
+                $tutor->setClassTimeBegin($obj['classTimeBegin']);
             }
-            if($ref->getChild($key)->getSnapshot()->hasChild("availableUpto")) {
-                $tutor->setAvailableUpto($obj['availableUpto']);
+            if($ref->getChild($key)->getSnapshot()->hasChild("classTimeEnd")) {
+                $tutor->setClassTimeEnd($obj['classTimeEnd']);
             }
 
             $location = new Location();

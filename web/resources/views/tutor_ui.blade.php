@@ -50,8 +50,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="availableFrom">Available From:</label>
-                            <select class="form-control" id="availableFrom"  required="required" name="availableFrom">
+                            <label for="classTimeBegin">Available From:</label>
+                            <select class="form-control" id="classTimeBegin"  required="required" name="classTimeBegin">
                                 <option value="08:00">08:00</option>
                                 <option value="08:30">08:30</option>
                                 <option value="09:00">09:00</option>
@@ -78,8 +78,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="availableUpto">Available Upto:</label>
-                            <select class="form-control" id="availableUpto"  required="required" name="availableUpto">
+                            <label for="classTimeEnd">Class Time End:</label>
+                            <select class="form-control" id="classTimeEnd"  required="required" name="classTimeEnd">
                                 <option value="08:00">08:00</option>
                                 <option value="08:30">08:30</option>
                                 <option value="09:00">09:00</option>

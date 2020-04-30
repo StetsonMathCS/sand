@@ -193,11 +193,11 @@ class RequestController extends Controller
             if($tutorSnap->hasChild("rating")) {
                 $tutor->setRating($obj['rating']);
             }
-            if($tutorSnap->hasChild("availableFrom")) {
-                $tutor->setAvailableFrom($obj['availableFrom']);
+            if($tutorSnap->hasChild("classTimeBegin")) {
+                $tutor->setClassTimeBegin($obj['classTimeBegin']);
             }
-            if($tutorSnap->hasChild("availableUpto")) {
-                $tutor->setAvailableUpto($obj['availableUpto']);
+            if($tutorSnap->hasChild("classTimeEnd")) {
+                $tutor->setClassTimeEnd($obj['classTimeEnd']);
             }
 
             $location = new Location();
