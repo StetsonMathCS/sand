@@ -28,9 +28,12 @@ class RequestController extends Controller
             ->with("role",$role);
         }
         else if(Roles::isStudent($role)) {
+            $allCourses = $this->getAllCourses();
+            $tutors = $this->getAllTutors();
             return view("requests_student")
-            ->with("courses", $this->getAllCourses())
-            ->with("tutors", $this->getAllTutors())
+            ->with("courses", $allCourses)
+            ->with("tutors", $tutors)
+            ->with("tutorsData",$this->getTutorsDataUsingCourses($allCourses, $tutors))
             ->with("role",$role);
         }
         else if(Roles::isTutor($role)) {
@@ -60,9 +63,8 @@ class RequestController extends Controller
         $factory = (new Factory)->withServiceAccount(__DIR__ . '/myapp.json');
         $database = $factory->createDatabase();
         $requestData = [
-            "block" => request('block'),
             "course" => request('stdCourse'),
-            "slot" => request('slot'),
+            "classBeginTime" => request('beginTime'),
             "tutor" => request('tutorUserName')
         ];
         $role = session()->get("role");
@@ -288,5 +290,43 @@ class RequestController extends Controller
             $student->setCourses(array());
         }
         return $student;
+    }
+
+    public function getTutorsDataUsingCourses($allCourses, $tutors) {
+        // $factory = (new Factory)->withServiceAccount(__DIR__ . '/myapp.json');
+        // $database = $factory->createDatabase();
+        // $ref = $database->getReference("tutors");
+        // $keys = $ref->getChildKeys();
+
+        $data = array();
+
+        foreach($tutors as $key => $tutor) {
+
+            $tutorData = [
+                "uid" => $tutor->getUid(),
+                "firstName" => $tutor->getFirstName(),
+                "lastName" => $tutor->getLastName(),
+                "username" => $tutor->getUserName(),
+                "classTimeBegin" => $tutor->getClassTimeBegin() ?
+                    $tutor->getClassTimeBegin() : ""
+            ];
+            $courses = [];
+            if($tutor->getCourses()) {
+                // $allCourses = $this->getAllCourses();
+                foreach($tutor->getCourses() as $key => $value) {
+                    foreach ($allCourses as $key => $course) {
+                        if($course->getCode() == $value) {
+                            $courses[$value] = $course->getTitle();
+                            break;
+                        }
+                    }
+                }
+            }
+
+            $tutorData["courses"] = $courses;
+            array_push($data, $tutorData);
+        }
+        return $data;
+        // return response()->json($data, 200);
     }
 }

@@ -206,4 +206,19 @@ class Tutor
 
         return "";
     }
+
+    public function toJSObject() {
+        return json_encode([
+            "firstName" => $this->firstName,
+            "lastName" => $this->lastName,
+            "username" => $this->userName,
+            "uid" => $this->uid,
+            "email" => $this->email,
+            "courses" => $this->courses,
+            "classTimeBegin" => $this->classTimeBegin,
+            "classTimeEnd" => $this->classTimeEnd,
+            "location" => $this->location,
+
+        ]);
+    }
 }

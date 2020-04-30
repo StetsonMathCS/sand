@@ -11,60 +11,34 @@
                             <span class="col100-form-title p-b-26">
                                 Place new Request
                             </span>
-                            <div class="form-group">
-                                <label class="select-label" for="stdCourse">Select Course:</label>
-                                <select class="form-control" id="stdCourse"  required="required" name="stdCourse">
-                                    @for($i=0; $i<count($courses); $i++)
-                                        <option value="{{$courses[$i]->getCode()}}">{{$courses[$i]->getTitle()}}</option>
-                                    @endfor
-                                </select>
-                            </div>
 
                             <div class="form-group">
                                 <label for="tutorUserName">Select Tutor:</label>
-                                <select class="form-control" id="tutorUserName"  required="required" name="tutorUserName">
-                                    @for($i=0; $i<count($tutors); $i++)
+                                <select class="form-control" id="tutorUserName"  required="required" name="tutorUserName"  onchange="ontutorChanged()">
+                                    {{-- @for($i=0; $i<count($tutors); $i++)
                                         <option value="{{$tutors[$i]->getUserName()}}">{{$tutors[$i]->getFirstName()}} {{$tutors[$i]->getLastName()}}</option>
-                                    @endfor
+                                    @endfor --}}
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label for="block">Time Needed:</label>
-                                <select class="form-control" id="block"  required="required" name="block">
-                                    <option value="30 Minutes">30 Minutes</option>
-                                    <option value="60 Minutes">60 Minutes</option>
-                                    <option value="120 Minutes">120 Minutes</option>
-                                    <option value="180 Minutes">180 Minutes</option>
+                                <label class="select-label" for="stdCourse">Select Course:</label>
+                                <select class="form-control" id="stdCourse"  required="required" name="stdCourse">
+                                    {{-- @if ($tutors[0]->getCourses() && $tutors[0]->getCourses()->count > 0)
+                                        @for($i=0; $i<count($courses); $i++)
+                                            @if ($courses[$i]->getCode() == ($tutors[0]->getCourses())[0])
+                                                <option value="{{$courses[$i]->getCode()}}">{{$courses[$i]->getTitle()}}</option>
+                                            @endif
+                                        @endfor
+                                    @endif --}}
+
                                 </select>
                             </div>
 
-
                             <div class="form-group">
-                                <label for="slot">Time Slot:</label>
-                                <select class="form-control" id="slot"  required="required" name="slot">
-                                    <option value="08:00">08:00</option>
-                                    <option value="08:30">08:30</option>
-                                    <option value="09:00">09:00</option>
-                                    <option value="09:30">09:30</option>
-                                    <option value="10:00">10:00</option>
-                                    <option value="10:30">10:30</option>
-                                    <option value="11:00">11:00</option>
-                                    <option value="11:30">11:30</option>
-                                    <option value="12:00">12:00</option>
-                                    <option value="12:30">12:30</option>
-                                    <option value="13:00">13:00</option>
-                                    <option value="13:30">13:30</option>
-                                    <option value="14:00">14:00</option>
-                                    <option value="14:30">14:30</option>
-                                    <option value="15:00">15:00</option>
-                                    <option value="15:30">15:30</option>
-                                    <option value="16:00">16:00</option>
-                                    <option value="16:30">16:30</option>
-                                    <option value="17:00">17:00</option>
-                                    <option value="17:30">17:30</option>
-                                    <option value="18:00">18:00</option>
-                                    <option value="18:30">18:30</option>
+                                <label for="beginTime">Class Beginning Time:</label>
+                                <select class="form-control" id="beginTime"  required="required" name="beginTime">
+                                    {{-- <option value="{{ $tutors[0]->getClassTimeBegin() }}">{{ $tutors[0]->getClassTimeBegin() }}</option> --}}
                                 </select>
                             </div>
 
@@ -82,7 +56,7 @@
 
             <!-- Display Column -->
             <div class="col-md-8">
-                <h2>Existing Tutors</h2>
+                <h2>Classes</h2>
                 <table class="table table-dark">
                     <thead>
                     <tr>
@@ -90,8 +64,8 @@
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
-                        <th>Availability</th>
-                        <th>Courses</th>
+                        <th>Class Time</th>
+                        <th>Course</th>
                         <th>Location</th>
                     </tr>
                     </thead>
@@ -102,10 +76,10 @@
                             <td>{{ $tutors[$i]->getFirstName() }}</td>
                             <td>{{ $tutors[$i]->getLastName() }}</td>
                             <td>{{ $tutors[$i]->getEmail() }}</td>
-                            <td>{{ $tutors[$i]->getAvailability() }}</td>
+                            <td>{{ $tutors[$i]->getClassTime() }}</td>
                             <td>
                                 @foreach($tutors[$i]->getCourses() as $key => $course)
-                                    {{ $key}} <br/>
+                                    {{ $course }} <br/>
                                 @endforeach
                             </td>
                             <td>
@@ -121,4 +95,69 @@
             </div>
         </div>
     </div>
+    <input id="tutorsData" type="hidden" value="{{ json_encode($tutorsData) }}">
 </div>
+
+<script>
+    var tutorsData = JSON.parse(document.querySelector("#tutorsData").value);
+    onTutorsFetched();
+
+    function onTutorsFetched() {
+        var tutorsEl = document.querySelector('#tutorUserName');
+        tutorsData.forEach(tutor => {
+            var option = document.createElement('option');
+            option.value = tutor.username;
+            option.innerHTML = tutor.firstName + " " + tutor.lastName;
+            tutorsEl.appendChild(option);
+        });
+
+        var tutor = tutorsData[0];
+        updateCourseForTutor(tutor);
+        UpdateClassBeginTimeForTutor(tutor);
+    }
+
+    function getTutorByUsername(username) {
+        for (let index = 0; index < tutorsData.length; index++) {
+            const tutor = tutorsData[index];
+            if(tutor.username == username) return tutor;
+        }
+    }
+
+    function removeOptionsFromSelect(selectEl) {
+        var optionsCount = selectEl.options.length;
+        for(var index = 0; index < optionsCount; index++) {
+            selectEl.remove(index);
+        }
+    }
+
+    function updateCourseForTutor(tutor) {
+        var coursesEl = document.querySelector('#stdCourse');
+        removeOptionsFromSelect(coursesEl);
+        var courses = tutor.courses;
+        for (const code in courses) {
+            if (courses.hasOwnProperty(code)) {
+                const title = courses[code];
+                var option = document.createElement('option');
+                option.value = code;
+                option.innerHTML = title;
+                coursesEl.appendChild(option);
+            }
+        }
+    }
+
+    function UpdateClassBeginTimeForTutor(tutor) {
+        var beginTimeEl = document.querySelector('#beginTime');
+        removeOptionsFromSelect(beginTimeEl);
+        var option = document.createElement('option');
+        option.value = tutor.classTimeBegin;
+        option.innerHTML = tutor.classTimeBegin;
+        beginTimeEl.appendChild(option);
+    }
+
+    function ontutorChanged() {
+        var username = document.querySelector('#tutorUserName').value;
+        var tutor = getTutorByUsername(username);
+        updateCourseForTutor(tutor);
+        UpdateClassBeginTimeForTutor(tutor);
+    }
+</script>
