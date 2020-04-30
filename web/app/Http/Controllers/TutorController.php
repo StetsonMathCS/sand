@@ -181,6 +181,48 @@ class TutorController extends Controller
         return response()->json($data, 200);
     }
 
+    public function edit(Request $request)
+    {
+        $factory = (new Factory)->withServiceAccount(__DIR__ . '/myapp.json');
+        $database = $factory->createDatabase();
+        $auth = $factory->createAuth();
+        $uid = session()->get("id");
+        $user = $auth->getUser($uid);
+        if($user == null) {
+            echo 'Invalid User';
+        }
+        //Create tutor record
+
+        $tutorData = [
+            "userName" => request('username'),
+            "firstName" => request('firstName'),
+            "lastName" => request('lastName'),
+            "classTimeBegin" => request('classTimeBegin'),
+            "classTimeEnd" => request('classTimeEnd'),
+            "location" => request('location')
+        ];
+        //get selectedCourse Option
+        $selectedCourse = request('selectedCourse');
+        if($selectedCourse == "other") {
+            //get the course code
+            $courseCode = request('otherCourseCode');
+            $courseTitle = request('otherCourseTitle');
+            $tutorData['courses'] = [$courseCode];
+
+            $this->createCourse($courseCode, $courseTitle);
+        }
+        elseif(strlen($selectedCourse) > 0) {
+            $tutorData['courses'] = [$selectedCourse];
+        }
+        $ref = $database->getReference("tutors");
+        $ref->getChild($uid)->update($tutorData);
+
+        $data = [
+            "status"=> "success"
+        ];
+        return response()->json($data, 200);
+    }
+
     function isCourseAvailable($courseCode) {
         $factory = (new Factory)->withServiceAccount(__DIR__ . '/myapp.json');
         $database = $factory->createDatabase();

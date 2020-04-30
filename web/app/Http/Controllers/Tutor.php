@@ -186,4 +186,24 @@ class Tutor
     {
         return "";
     }
+
+    /**
+     * @return mixed classTime
+     */
+    public function getClassTime()
+    {
+        if($this->classTimeBegin != null && $this->classTimeEnd != null) {
+            return "$this->classTimeBegin to $this->classTimeEnd";
+        }
+
+        if($this->classTimeBegin != null) {
+            return $this->classTimeBegin;
+        }
+
+        if($this->classTimeEnd != null) {
+            return $this->classTimeEnd;
+        }
+
+        return "";
+    }
 }

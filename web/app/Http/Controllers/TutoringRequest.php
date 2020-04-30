@@ -12,6 +12,7 @@ class TutoringRequest
     private $block;
     private $studentUserName;
     private $tutorUserName;
+    private $classTimeBegin;
 
     /**
      * @return mixed
@@ -75,6 +76,22 @@ class TutoringRequest
     public function setBlock($block): void
     {
         $this->block = $block;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClassTimeBegin()
+    {
+        return $this->classTimeBegin;
+    }
+
+    /**
+     * @param mixed $slot
+     */
+    public function setClassTimeBegin($classTimeBegin): void
+    {
+        $this->classTimeBegin = $classTimeBegin;
     }
 
     /**

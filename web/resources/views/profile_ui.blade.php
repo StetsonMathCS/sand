@@ -1,7 +1,10 @@
-<div class="limiter" role="main">
+`<div class="limiter" role="main">
     <div class="container-login100">
         <div class="wrap-login100">
             <form class="login100-form validate-form">
+                <div>
+                    <a href="/edit-profile" style="float:right;">Edit</a>
+                </div>
                 <span class="login100-form-title p-b-26">
                     Profile
                 </span>
@@ -26,10 +29,10 @@
                             <h6>Tutor</h6>
                             <h6 class="gap1"><strong>Username</strong> : {{ $tutor->getUserName() }}</h6>
                             <h6 class="gap1"><strong>Email</strong> : {{ $tutor->getEmail() }}</h6>
-                            <h6 class="gap1"><strong>Availability</strong> : {{ $tutor->getAvailability() }}</h6>
-                            <h6 class="gap1"><strong>Courses</strong> :
+                            <h6 class="gap1"><strong>Class Time</strong> : {{ $tutor->getClassTime() }}</h6>
+                            <h6 class="gap1"><strong>Course</strong> :
                                 @foreach($tutor->getCourses() as $key => $course)
-                                    {{ $key }} <br/>
+                                    {{ $course }} <br/>
                                 @endforeach
                             </h6>
                         @endif

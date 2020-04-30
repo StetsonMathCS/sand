@@ -9,18 +9,16 @@
                     <thead>
                     <tr>
                         <th>Student</th>
-                        <th>Time Needed</th>
                         <th>Course</th>
-                        <th>Time Slot</th>
+                        <th>Class Begin Time</th>
                     </tr>
                     </thead>
                     <tbody>
                     @for($i=0; $i<count($requests); $i++)
                     <tr>
                         <td>{{ $requests[$i]->getStudentUserName() }}</td>
-                        <td>{{ $requests[$i]->getBlock() }}</td>
                         <td>{{ $requests[$i]->getCourse() }}</td>
-                        <td>{{ $requests[$i]->getSlot() }} <br/>
+                        <td>{{ $requests[$i]->getClassTimeBegin() }} <br/>
                         </td>
                     </tr>
                     @endfor

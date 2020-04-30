@@ -38,6 +38,8 @@ Route::get("tutors", "TutorController@index");
 Route::get("subjects", "SubjectController@index");
 Route::get("requests", "RequestController@index");
 Route::get("profile", "ProfileController@index");
+Route::get("profile", "ProfileController@index");
+Route::get("edit-profile", "ProfileController@edit");
 
 Route::post('dashboard', 'DashboardController@index');
 Route::post("students", "StudentController@store");
@@ -47,3 +49,4 @@ Route::post("create-tutor", "TutorController@create");
 Route::post("tutor_course", "SubjectController@storeTutorCourse");
 Route::post("student_course", "SubjectController@storeStudentCourse");
 Route::post("requests", "RequestController@store");
+Route::post("edit-tutor", "TutorController@edit");

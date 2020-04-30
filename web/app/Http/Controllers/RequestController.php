@@ -249,8 +249,7 @@ class RequestController extends Controller
             $req->setCourse($obj['course']);
             $req->setStudentUserName($obj['student']);
             $req->setTutorUserName($obj['tutor']);
-            $req->setSlot($obj['slot']);
-            $req->setBlock($obj['block']);
+            $req->setClassTimeBegin($obj['classTimeBegin']);
             array_push($data, $req);
         }
 

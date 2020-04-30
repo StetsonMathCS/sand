@@ -38,6 +38,26 @@ class ProfileController extends Controller
         return view('error')->with("error",$error);
     }
 
+    public function edit()
+    {
+        if(session()->has("role") == false || session()->has("id") == false) {
+            return view('logout');
+        }
+        $role = session()->get("role");
+        $id = session()->get("id");
+        if(Roles::isTutor($role)) {
+            return view("edit_tutor")
+            ->with("tutor", $this->getTutorProfile($id))
+            ->with("courses", (new RequestController())->getAllCourses())
+            ->with("role",$role);
+        }
+
+        $error = [
+            "Access Denied",
+            "You are not authorized to view this page"
+        ];
+        return view('error')->with("error",$error);
+    }
 
 
     public function getTutorProfile($id): Tutor {
