@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     @if ($role == 1)
         <!-- Brand -->
-        <a class="navbar-brand" href="/students">Students</a>
+        <a class="navbar-brand" href="/sand-students">Students</a>
     @endif
 
 
@@ -15,28 +15,28 @@
         <ul class="navbar-nav">
             @if ($role == 1)
                 <li class="nav-item">
-                    <a class="nav-link" href="/tutors">Tutors</a>
+                    <a class="nav-link" href="/sand-tutors">Tutors</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/subjects">Subjects</a>
+                    <a class="nav-link" href="/sand-subjects">Subjects</a>
                 </li>
             @endif
 
             @if ($role == 2)
                 <li class="nav-item">
-                    <a class="nav-link" href="/schedule">Schedule</a>
+                    <a class="nav-link" href="/sand-schedule">Schedule</a>
                 </li>
             @endif
 
             @if ($role == 1 || $role == 2 || $role == 3)
                 <li class="nav-item">
-                    <a class="nav-link" href="/requests">Requests</a>
+                    <a class="nav-link" href="/sand-requests">Requests</a>
                 </li>
             @endif
 
             @if ($role == 2 ||$role == 3)
                 <li class="nav-item">
-                    <a class="nav-link" href="/profile">Profile</a>
+                    <a class="nav-link" href="/sand-profile">Profile</a>
                 </li>
             @endif
 

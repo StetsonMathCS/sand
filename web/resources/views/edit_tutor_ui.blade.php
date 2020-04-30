@@ -174,7 +174,7 @@
         });
 
         function redirectToProfile() {
-            window.location = "/profile";
+            window.location = "/sand-profile";
         }
         function onSelectCourseChanged() {
             console.log("Select course changed");

@@ -35,15 +35,6 @@
                     <span class="focus-input100" data-placeholder="Email"></span>
                 </div>
 
-                <div>
-                    <p>select course</p>
-                    <ul class="listing">
-						<li><input id="math-101" type="checkbox" name="fruit" value="Math101"> Math 101</li>
-						<li><input id="cs-101" type="checkbox" name="fruit" value="CS101"> Introduction to Computing</li>
-						<li><input id="cs-102" type="checkbox" name="fruit" value="CS102"> Introduction to Programming</li>
-					</ul>
-                </div>
-
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
@@ -108,16 +99,7 @@
             var firstName = document.querySelector('#firstname').value;
             var lastName = document.querySelector('#lastname').value;
             var email = document.querySelector('#email').value;
-            var courses = {};
-            if(document.querySelector('#math-101').checked){
-                courses.Math101 = true;
-            }
-            if(document.querySelector('#cs-101').checked){
-                courses.CS101 = true;
-            }
-            if(document.querySelector('#cs-102').checked){
-                courses.CS102 = true;
-            }
+
             firebase.auth().currentUser.getIdToken().then((idToken) => {
                 // Pass the ID token to the server along with data
                 $.post(
@@ -128,8 +110,7 @@
                         password: password,
                         firstName: firstName,
                         lastName: lastName,
-                        email: email,
-                        courses: courses
+                        email: email
                     },
                     (data, status) => {
                         if (status == 'success' && data) {

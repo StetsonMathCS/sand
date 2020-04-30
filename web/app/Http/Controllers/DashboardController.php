@@ -56,10 +56,13 @@ class DashboardController extends Controller
         session()->put("role",$userRole);//Save in session
         session()->put("id",$uid);
         if(Roles::isAdmin($userRole)) {
-            return redirect('students');
+            return redirect('sand-students');
         }
-        elseif (Roles::isStudent($userRole) || Roles::isTutor($userRole)) {
-            return redirect('requests');
+        elseif (Roles::isStudent($userRole)) {
+            return redirect('sand-schedule');
+        }
+        elseif (Roles::isTutor($userRole)) {
+            return redirect('sand-requests');
         }
         else {
             return redirect('logout');

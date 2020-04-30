@@ -1,7 +1,7 @@
 <div class="limiter">
     <div class="col-md-10 offset-sm-1">
         <br/><br/>
-        <h1 class="text-center bg-info">View Requests</h1>
+        <h1 class="text-center bg-info">Schedule</h1>
         <div class="row">
             <!-- Display Column -->
             <div class="col-md-12">

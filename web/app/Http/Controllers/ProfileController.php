@@ -52,6 +52,12 @@ class ProfileController extends Controller
             ->with("role",$role);
         }
 
+        if(Roles::isStudent($role)) {
+            return view("edit_student")
+            ->with("student", $this->getStudentProfile($id))
+            ->with("role",$role);
+        }
+
         $error = [
             "Access Denied",
             "You are not authorized to view this page"

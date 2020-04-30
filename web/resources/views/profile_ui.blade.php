@@ -3,7 +3,7 @@
         <div class="wrap-login100">
             <form class="login100-form validate-form">
                 <div>
-                    <a href="/edit-profile" style="float:right;">Edit</a>
+                    <a href="/sand-edit-profile" style="float:right;">Edit</a>
                 </div>
                 <span class="login100-form-title p-b-26">
                     Profile
@@ -18,11 +18,6 @@
                             <h6>Student</h6>
                             <h6 class="gap1"><strong>Username</strong> : {{ $student->getUserName() }}</h6>
                             <h6 class="gap1"><strong>Email</strong> : {{ $student->getEmail() }}</h6>
-                            <h6 class="gap1"><strong>Courses</strong> :
-                                @foreach($student->getCourses() as $key => $course)
-                                    {{ $key }} <br/>
-                                @endforeach
-                            </h6>
                         @endif
                         @if ($role == 3)
                             <h3 class="title">{{ $tutor->getFirstName() }}</h3>

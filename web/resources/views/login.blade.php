@@ -33,11 +33,11 @@
                         Don’t have an account? Register as a
                     </span>
 
-                    <button id="sign-up-student" class="txt2" onclick="window.location='{{ url("signup-student") }}'">Student</button>
+                    <button id="sign-up-student" class="txt2" onclick="window.location='{{ url("sand-signup-student") }}'">Student</button>
                     <span class="txt1">
                         or
                     </span>
-                    <button id="sign-up-tutor" class="txt2" onclick="window.location='{{ url("signup-tutor") }}'">Tutor</button>
+                    <button id="sign-up-tutor" class="txt2" onclick="window.location='{{ url("sand-signup-tutor") }}'">Tutor</button>
                 </div>
         </div>
     </div>

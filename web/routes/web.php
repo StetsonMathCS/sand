@@ -19,11 +19,11 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/signup-student', function () {
+Route::get('/sand-signup-student', function () {
     return view('signup_students');
 });
 
-Route::get('/signup-tutor', function () {
+Route::get('/sand-signup-tutor', function () {
     return view('signup_tutor')
     ->with("courses", (new RequestController())->getAllCourses());
 });
@@ -33,14 +33,13 @@ Route::get('/logout', function () {
     return view('logout');
 });
 
-Route::get("students", "StudentController@index");
-Route::get("tutors", "TutorController@index");
-Route::get("subjects", "SubjectController@index");
-Route::get("requests", "RequestController@index");
-Route::get("profile", "ProfileController@index");
-Route::get("profile", "ProfileController@index");
-Route::get("edit-profile", "ProfileController@edit");
-Route::get("schedule", "RequestController@getSchedule");
+Route::get("sand-students", "StudentController@index");
+Route::get("sand-tutors", "TutorController@index");
+Route::get("sand-subjects", "SubjectController@index");
+Route::get("sand-requests", "RequestController@index");
+Route::get("sand-profile", "ProfileController@index");
+Route::get("sand-edit-profile", "ProfileController@edit");
+Route::get("sand-schedule", "RequestController@getSchedule");
 
 Route::post('dashboard', 'DashboardController@index');
 Route::post("students", "StudentController@store");
@@ -51,3 +50,4 @@ Route::post("tutor_course", "SubjectController@storeTutorCourse");
 Route::post("student_course", "SubjectController@storeStudentCourse");
 Route::post("requests", "RequestController@store");
 Route::post("edit-tutor", "TutorController@edit");
+Route::post("edit-student", "StudentController@edit");

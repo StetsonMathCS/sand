@@ -121,8 +121,7 @@ class StudentController extends Controller
             "firstName" => request('firstName'),
             "lastName" => request('lastName'),
             "password" => request('password'),
-            "email" => request('email'),
-            "courses" => request('courses')
+            "email" => request('email')
         ]);
 
         //Create role
@@ -130,6 +129,32 @@ class StudentController extends Controller
         $ref->getChild($uid)->set([
             "role" => Roles::getStudentRole()
         ]);
+
+        $data = [
+            "status"=> "success"
+        ];
+        return response()->json($data, 200);
+    }
+
+    public function edit(Request $request)
+    {
+        $factory = (new Factory)->withServiceAccount(__DIR__ . '/myapp.json');
+        $database = $factory->createDatabase();
+        $auth = $factory->createAuth();
+        $uid = session()->get("id");
+        $user = $auth->getUser($uid);
+        if($user == null) {
+            echo 'Invalid User';
+        }
+        //Create student record
+        $studentData = [
+            "userName" => request('username'),
+            "firstName" => request('firstName'),
+            "lastName" => request('lastName')
+        ];
+
+        $ref = $database->getReference("students");
+        $ref->getChild($uid)->update($studentData);
 
         $data = [
             "status"=> "success"
