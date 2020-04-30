@@ -40,6 +40,7 @@ Route::get("requests", "RequestController@index");
 Route::get("profile", "ProfileController@index");
 Route::get("profile", "ProfileController@index");
 Route::get("edit-profile", "ProfileController@edit");
+Route::get("schedule", "RequestController@getSchedule");
 
 Route::post('dashboard', 'DashboardController@index');
 Route::post("students", "StudentController@store");

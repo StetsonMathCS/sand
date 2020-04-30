@@ -22,6 +22,12 @@
                 </li>
             @endif
 
+            @if ($role == 2)
+                <li class="nav-item">
+                    <a class="nav-link" href="/schedule">Schedule</a>
+                </li>
+            @endif
+
             @if ($role == 1 || $role == 2 || $role == 3)
                 <li class="nav-item">
                     <a class="nav-link" href="/requests">Requests</a>

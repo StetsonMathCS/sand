@@ -48,6 +48,23 @@ class RequestController extends Controller
         return view('error')->with("error",$error);
     }
 
+    public function getSchedule() {
+        if(session()->has("role") == false || session()->has("id") == false) {
+            return view('logout');
+        }
+        $role = session()->get("role");
+        $id = session()->get("id");
+        if(Roles::isStudent($role)) {
+            return view("schedule")
+            ->with("requests", $this->getRequestsForStudent($id))
+            ->with("role",$role);
+        }
+        $error = [
+            "Access Denied",
+            "You are not authorized to view this page"
+        ];
+        return view('error')->with("error",$error);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -251,7 +268,31 @@ class RequestController extends Controller
             $req->setCourse($obj['course']);
             $req->setStudentUserName($obj['student']);
             $req->setTutorUserName($obj['tutor']);
-            $req->setClassTimeBegin($obj['classTimeBegin']);
+            $req->setClassTimeBegin($obj['classBeginTime']);
+            array_push($data, $req);
+        }
+
+        return $data;
+    }
+
+    public function getRequestsForStudent($id) {
+        $factory = (new Factory)->withServiceAccount(__DIR__ . '/myapp.json');
+        $database = $factory->createDatabase();
+        $student = $this->getStudentProfile($id);
+        $ref = $database->getReference("requests")
+                        ->orderByChild("student")
+                        ->equalTo($student->getUserName());
+        $requests = $ref->getSnapshot()->getValue();
+
+        $data = array();
+
+        foreach($requests as $request) {
+            $obj = $request;
+            $req = new TutoringRequest();
+            $req->setCourse($obj['course']);
+            $req->setStudentUserName($obj['student']);
+            $req->setTutorUserName($obj['tutor']);
+            $req->setClassTimeBegin($obj['classBeginTime']);
             array_push($data, $req);
         }
 
