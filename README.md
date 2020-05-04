@@ -29,9 +29,17 @@
  - References to database fields are made in ```AppDelegate.swift``` and accessed globally via ```AppDelegate.shared().reference```.
  - When accounts are initially made, a field is created in /Students using the user's "AuthId" as a key, which contains information about their name, email, and what classes they are taking (initially an empty list).
  	- Because tutor functionality has not been implemented yet, all accounts created through the app are implicitly "Student" accounts and have their information written to the student part of the database.
+- ```RequestController.swift``` uses ```AppDelegate.shared()``` to poll firebase for live status updates of whether classes are matched or not; these changes are reflected in ```UpcomingSessionView.swift```.
+- ```ClassesListController.swift``` uses ```AppDelegate.shared()``` to draw from a specific student’s record and compile a list of classes, which is displayed in ```ClassesListView.swift```.
+- ```AddClasses.swift``` uses ```AppDelegate.shared()``` to compare the student’s existing class list with the class they are trying to add, and append it to their list if it is not already in the list; the UI demonstrating this logic is also in ```AddClasses.swift```.
+
 
 **UI and UX**
- - _UI & UX info goes here_
+- The iOS UI is primarily driven by SwiftUI from ```ViewController.swift```. It uses a basic TabView structure to switch between the various screens. This is initialized in ```SceneDelegate.swift``` with the declaration of ```contentView```. 
+- ```UpcomingSessionView.swift``` is the primary screen where students view the matched/unmatched status of their session requests. The logic behind this screen is in ```RequestController.swift```.
+- ```ClassesListView.swift``` is the secondary screen where students view which classes they currently have; they can add classes from this screen (driven by ```AddClasses.swift```) or even make a session request my long-pressing on a class in their list (```MakeRequestView.swift``` is referenced from ```ClassesListView.swift``` to prompt the modal view). 
+	- While the application shows a student has removed a class from their “My Classes List,” the change is currently not reflecting to Firebase. There needs to be another class, e.g. ```RemoveClasses.swift```, that tie to ```ClassesListView.swift``` to complete this feature. 
+- ```AddClasses.swift``` contains both the view and logic for adding classes; the ```AddClasses``` struct is responsible for creating the larger list with different class categories, and the ```AddClassesSub``` struct is for detailing the various class codes for a particular subject area. It also contains the logic for actually appending the class to the user’s list in Firebase (see Firebase Integration for more).
 
 **Authentication**
  - _Authentication info goes here_
