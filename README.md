@@ -16,6 +16,13 @@
 - Indexing to locate data faster in the database
 - Reference - [Firebase Security Rules](https://firebase.google.com/docs/rules "Firebase Docs")
 
+**Firebase Structure**
+- Contains nodes /Classes, /Requests, /Students, and /Tutors.
+	- Classes contains information about what classes are offered at Stetson University, generated from ParseHTML.py script.
+	- Students and Tutors nodes contain relevant information about those types of accounts.  Student nodes contain their name, email, and what classes they are enrolled in.  Tutor nodes contain information about what classes they are offering, what their rating is, and at what times they are offering tutoring.
+		- Note that tutor accounts have not yet been fully implemented.
+	- When requests are submitted by students, they appear at and are listened to in the Requests part of the database.  Requests contain an identification for the student that submitted them, whether the student is looking for a group session, what class they are looking to be tutored in, and at what times they are available.  The values for "time" and "tutorLocation" initially left empty, and "matched" is initialized to false.  When a match is made, these are updated appropriately.
+
 # iOS Application
 **Firebase Integration**
  - Uses ```GoogleService-Info.plist``` as an API key to access the Firebase database.
