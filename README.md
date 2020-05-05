@@ -1,3 +1,6 @@
+# About SAND
+The goal of SAND is to create new oppertunities for students to seek help in their studies from their peers.  Using this application, students can submit a request for tutoring in a class, and eligilbe tutors who can accomadate the students time frame recieve a notification.  Once the tutor accepts, it is between the tutor and the student to work out payment, using the links to venmo provided.  This way, more students can get the help they need to pass their classes in a timely manner and students looking to make a bit of money can do so by helping their peers.
+
 # Web
 **Web Automation Test**
 - Partially Completed Tests to review functionality of the webapp. Needs finalized test cases.
