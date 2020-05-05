@@ -1,6 +1,3 @@
-# About SAND
-The goal of SAND is to create new oppertunities for students to seek help in their studies from their peers.  Using this application, students can submit a request for tutoring in a class, and eligilbe tutors who can accomadate the students time frame recieve a notification.  Once the tutor accepts, it is between the tutor and the student to work out payment, using the links to venmo provided.  This way, more students can get the help they need to pass their classes in a timely manner and students looking to make a bit of money can do so by helping their peers.
-
 # Web
 **Web Automation Test**
 - Partially Completed Tests to review functionality of the webapp. Needs finalized test cases.
@@ -42,7 +39,13 @@ The goal of SAND is to create new oppertunities for students to seek help in the
 - ```UpcomingSessionView.swift``` is the primary screen where students view the matched/unmatched status of their session requests. The logic behind this screen is in ```RequestController.swift```.
 - ```ClassesListView.swift``` is the secondary screen where students view which classes they currently have; they can add classes from this screen (driven by ```AddClasses.swift```) or even make a session request my long-pressing on a class in their list (```MakeRequestView.swift``` is referenced from ```ClassesListView.swift``` to prompt the modal view). 
 	- While the application shows a student has removed a class from their “My Classes List,” the change is currently not reflecting to Firebase. There needs to be another class, e.g. ```RemoveClasses.swift```, that tie to ```ClassesListView.swift``` to complete this feature. 
+- ```Settings.swift``` is the third screen where the student or tutor can access their profile, payments, and more info about the app. The Settings screen using a NavigationView structure to display three NavigationLinks: Profile, Payments, and About.
 - ```AddClasses.swift``` contains both the view and logic for adding classes; the ```AddClasses``` struct is responsible for creating the larger list with different class categories, and the ```AddClassesSub``` struct is for detailing the various class codes for a particular subject area. It also contains the logic for actually appending the class to the user’s list in Firebase (see Firebase Integration for more).
+- Future Work: 
+	- Display custom images linked to specific class names (i.e. CSCI classes display an image of where CSCI classes are held, etc)
+	- Display User Information in the Profile screen such as Display Picture, Username, Password, and add the ability to sign-out
+	- Add a Profile System so that Students and Tutors can review each other and submit ratings
+	- Add Notifcation system with customized timed alerts based on user preference.
 
 **Authentication**
 - The IOS Authentication is driven by  ```LoginPage.swift``` which creates an initial screen allowing the user to sign into the app using an email and password that they have pevious made and has been stored in Firebase Authentication. The logic behind this page is stored within ```LoginPageController.swift```.
@@ -50,7 +53,11 @@ The goal of SAND is to create new oppertunities for students to seek help in the
 - On the initial login page created by ```LoginPage.swift``` there is a button that allows users to access the sign up form if they have no already made an account which will allow them to make an account and send the appropriate information to Firebase Authentication and to Firebase Database. 
  
 **Payment**
- - _Payment info goes here_
+ - The Payment screen is acessible through the "Payments" tab on the ```Settings.swift``` view. This screen has two buttons: Paypal and Venmo. Each button leads to a Sign-in page where the User can enter their account information and send the tutor payment through the platform of their choice. 
+ - There is no Payment Verification system to check if the Student paid the Tutor in the app. The Tutor will have to verify if the student paid before they begin the tutoring session. 
+ - Future Work:
+ 	- Make Payment Verication System
+	- Add more payment options to the Payment screen
 
 # Backend
 **Tutor Matching**
