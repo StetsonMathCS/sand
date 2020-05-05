@@ -65,13 +65,29 @@ The goal of SAND is to create new oppertunities for students to seek help in the
 
 # Backend
 **Tutor Matching**
- - ```SandMatching.py``` script when ran will attempt to match a student with an open session request with a tutor who is available at that time who is offering tutoring for the same class.
- 	- References the /Tutors, /Requests, /Students parts of the Firebase database.  Calls ```match()``` to start the matching process, which uses several supporting functions.  For each unmatched request, the program will attempt to reduce the list of possible tutors by filtering out tutors that do not offer the class, and then by tutors that are not available at the same time as the student is.  It will also attempt to match students with high-rated tutors.
-	- Note that while this works with the "Tutor" objects in the Firebase database, full tutor account functionality has not been implemented on the iOS side, and no provisioning has yet been made for a rating system.
-	- Writes to a logfile ```log.txt``` information about when the script ran, how many matches were made, and the number of outstanding requests.
- - Runs automatically every minute if a cronjob ```* * * * * /path/to/script > /dev/null 2>&1``` is used.  This currently exists for user lhough on delenn.
+ - ```SandMatching.py``` script when ran will attempt to match a student with an open session request with a tutor who is 	available at that time who is offering tutoring for the same class.
+ 	- References the /Tutors, /Requests, /Students parts of the Firebase database.  Calls ```match()``` to start the 	   matching process, which uses several supporting functions.  For each unmatched request, the program will 		  attempt to reduce the list of possible tutors by filtering out tutors that do not offer the class, and then by 	   tutors that are not available at the same time as the student is.  It will also attempt to match students with 	    high-rated tutors. Once matched firebase should be updated with the matched information i.e. time, location, and 	  	    which class if they searched for multiple.
+	- Note that while this works with the "Tutor" objects in the Firebase database, full tutor account functionality has 	       not been implemented on the iOS side, and no provisioning has yet been made for a rating system.
+		- We have fake tutors and students in order to test in ```SandMatching.py``` this can be added to and changed 			to test different scenarios and bugs. It is structured in json formatting and may be easier to read if put 		     into a json file to edit and view.
+	- Writes to a logfile ```log.txt``` information about when the script ran, how many matches were made, and the number 		of outstanding requests.
+ - Runs automatically every minute if a cronjob ```* * * * * /path/to/script > /dev/null 2>&1``` is used.  This currently      	  exists for user lhough on delenn.
 
 **Other**
  - ```postRequestCourses.sh``` and ```ParseHTML.py``` make a post request to get raw HTML from a Stetson webpage, which is then processed, mostly by regex, to produce lists of course codes for a given subject.  This information is written to /Classes on the Firebase database.
  	- If future attempts are made to make the project go live, this script should be run every semester to account for changes in what classes are being offered.
  - Backend makes use of a ```sand...###.json``` API key to access the database.
+ 
+ # Future Work
+ **iOS app**
+  - Currently there is no provisioning for tutors at all.
+  	- Way to in the login page choose if you will be making a tutor or student account.
+  	- Being able to have student and tutor accounts.
+	- Different views for each account and different permissions.
+		- View for tutors to see all classes they want to tutor for and an option to change sessions or times.
+		- Way for tutors to add classes as a tutor session.
+		- Notiications for both student and tutor that they have been matched.
+	- Rating system for tutors performance
+ **Backend**
+  - Filter and search by time last matched.
+  - Test large scale data groups for efficiency.
+  - Add matching sessions coming up sooner (prioritize matching people looking for a session in one hour instead of someone 	looking for a session a week from today).
