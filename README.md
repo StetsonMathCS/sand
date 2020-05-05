@@ -42,9 +42,9 @@
 - ```AddClasses.swift``` contains both the view and logic for adding classes; the ```AddClasses``` struct is responsible for creating the larger list with different class categories, and the ```AddClassesSub``` struct is for detailing the various class codes for a particular subject area. It also contains the logic for actually appending the class to the user’s list in Firebase (see Firebase Integration for more).
 
 **Authentication**
-- The IOS Authenticaion is driven by  ```LoginPage.swift``` which creates an initial screen allowing the user to sign into the app using an email and password that they have pevious made and has been stored in Firebase Authentication. The logic behind this page is stored within ```LoginPageController.swift```.
+- The IOS Authentication is driven by  ```LoginPage.swift``` which creates an initial screen allowing the user to sign into the app using an email and password that they have pevious made and has been stored in Firebase Authentication. The logic behind this page is stored within ```LoginPageController.swift```.
     - Reference [Firebase Authenticaion](https://firebase.google.com/docs/auth)
-- On the initial login page there is a button that allows users to access the sign up form if they have no already made an account which will allow them to make an account and send the appropriate information to Firebase Authentication and to Firebase Database. 
+- On the initial login page created by ```LoginPage.swift``` there is a button that allows users to access the sign up form if they have no already made an account which will allow them to make an account and send the appropriate information to Firebase Authentication and to Firebase Database. 
  
 **Payment**
  - _Payment info goes here_
