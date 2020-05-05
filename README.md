@@ -36,7 +36,7 @@
 
 **UI and UX**
 - The iOS UI is primarily driven by SwiftUI from ```ViewController.swift```. It uses a basic TabView structure to switch between the various screens. This is initialized in ```SceneDelegate.swift``` with the declaration of ```contentView```. 
-- ```UpcomingSessionView.swift``` is the primary screen where students view the matched/unmatched status of their session requests. The logic behind this screen is in ```RequestController.swift```.
+- ```UpcomingSessionView.swift``` is the primary screen where students view the matched/unmatched status of their session requests. The logic behind this screen is in ```RequestController.swift```. This screen also displays the current Day and Date in a custom CardView using DateFormatter.
 - ```ClassesListView.swift``` is the secondary screen where students view which classes they currently have; they can add classes from this screen (driven by ```AddClasses.swift```) or even make a session request my long-pressing on a class in their list (```MakeRequestView.swift``` is referenced from ```ClassesListView.swift``` to prompt the modal view). 
 	- While the application shows a student has removed a class from their “My Classes List,” the change is currently not reflecting to Firebase. There needs to be another class, e.g. ```RemoveClasses.swift```, that tie to ```ClassesListView.swift``` to complete this feature. 
 - ```Settings.swift``` is the third screen where the student or tutor can access their profile, payments, and more info about the app. The Settings screen using a NavigationView structure to display three NavigationLinks: Profile, Payments, and About.
@@ -53,7 +53,7 @@
 - On the initial login page created by ```LoginPage.swift``` there is a button that allows users to access the sign up form if they have no already made an account which will allow them to make an account and send the appropriate information to Firebase Authentication and to Firebase Database. 
  
 **Payment**
- - The Payment screen is acessible through the "Payments" tab on the ```Settings.swift``` view. This screen has two buttons: Paypal and Venmo. Each button leads to a Sign-in page where the User can enter their account information and send the tutor payment through the platform of their choice. 
+ - The Payment screen is accessible through the "Payments" tab on the ```Settings.swift``` view. This screen has two buttons: Paypal and Venmo. Each button leads to a Sign-in page where the User can enter their account information and send the tutor payment through the platform of their choice. 
  - There is no Payment Verification system to check if the Student paid the Tutor in the app. The Tutor will have to verify if the student paid before they begin the tutoring session. 
  - Future Work:
  	- Make Payment Verication System
