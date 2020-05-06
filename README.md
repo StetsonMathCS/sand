@@ -5,13 +5,23 @@ The goal of SAND is to create new oppertunities for students to seek help in the
 # Web
 The website is written in a [laravel](https://laravel.com) framework with PHP as a core programming language. Sand theme is being used throughout the website.
 
+## 1. Features 
 
-## 1. Firebase Authentication:
+This project is all about Students who are looking for tutors to learn from them. Tutors while registering their account can specify which course they would like to teach and their class timings so students can choose from the list of tutors to place a request for tution. 
+
+There are kind of users using this website:
+
+ - Student 
+ - Tutor 
+ - Admin 
+ 
+ 
+## 2. Firebase Authentication:
 
 [Firebase Authentication](https://firebase.google.com/docs/auth/?gclid=Cj0KCQjwncT1BRDhARIsAOQF9Ln9y1T0apd3o7l5Df-cNHWVrLbMOzQ6HHNyO-ZmK2xkMCg4slgPfF0aAn5ZEALw_wcB) used as areference
 
 
-## 2. Development
+## 3. Development
 
 This website has been developed as listed below:
 
@@ -30,10 +40,21 @@ This website has been developed as listed below:
  -  "Class Begin Time" will have time of selected teacher in dropdown.
  -  Changed "Existing Tutors" to "Classes"
  -  Changed "Courses" Column to "Course" which will show only one Course.
+ 
+ Tutor Changes:
+ - Made Requests page that will show requests came from student to that tutor
+ - Shown Tutor Profile Page
+Tutor Sign-up Changes
+ - Changed ***"Select Available From"*** to ***"Class Time Begin"***
+ - Changed ***"Select Available Upto"*** to ***"Class Time End"***
+ - Removed Courses Checkbox
+ - Added dropdown to select only one of the available course with the option as Other to add a new course
+ - Added two fields and enable them if other option is selected for course so a tutor can add a new course. Field names are Course and Title.
+ - Added validation to choose either one course or add a course.
 
 		
 
-## 3. Backend
+## 4. Backend
 
 [Firebase](https://firebase.google.com/docs/database) is being used as a backend for this website.
 
@@ -42,7 +63,7 @@ In Firebase at the root level there are following nodes:
 
  - **roles:** It contains roles assigned to each userid where user having role value as 1 is an admin, 2 is a student and 3 is a tutor.
  
-## 4. Codebase
+## 5. Codebase
 
 This section will walkthrough the codebase structure for the website:
 
@@ -96,6 +117,9 @@ This section will walkthrough the codebase structure for the website:
 
 There are certain areas in the website that can be further improved like in the Admin the functionalities related to add/manage tutors, students, courses or requests can be organised further. In tutor an option can be added where a tutor can teach multiple courses.
 
+- There is an important feature which helps to improve the quality of work by giving reviews/rate for tutors.
+
+ 
 **Web Automation Test**
 - Partially Completed Tests to review functionality of the webapp. Needs finalized test cases.
 - To test locally, follow these steps...
