@@ -137,7 +137,7 @@ There are certain areas in the website that can be further improved like in the 
 
 - There is an important feature which helps to improve the quality of work by giving reviews/rate for tutors.
 
--The direct massage can be added and that will allow students to communicate with their tutors.
+- The direct massage can be added and that will allow students to communicate with their tutors.
 
 
 **Web Automation Test**
