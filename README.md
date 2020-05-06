@@ -15,6 +15,12 @@ There are kind of users using this website:
  - Tutor 
  - Admin 
  
+ Once the Student register their account they can place request for tution by selecting a specific tutor from the dropdown. Each student can place multiple requests for tution and can also see the Tutors list along with their course and class timing information. There is a schedule page where a student can see their class schedule. Apart from this there is a profile page where a student can view or edit their profile. 
+
+Tutor registration is necessary for this project as without tutors student cannot study hence during registration tutor will specify which subject they teach and what are their class timings. Once they register or login they will be redirected to requests page where they can see the requests placed by different students to study from that tutor. Tutor can also view or edit their profile along with their course and class timings. 
+
+Admin is a pre-existing user where (s)he can see a list of students, tutors, requests, subjects etc. and it's a place a where they can be managed as well.
+ 
  
 ## 2. Firebase Authentication:
 
@@ -51,6 +57,16 @@ Tutor Sign-up Changes
  - Added dropdown to select only one of the available course with the option as Other to add a new course
  - Added two fields and enable them if other option is selected for course so a tutor can add a new course. Field names are Course and Title.
  - Added validation to choose either one course or add a course.
+ 
+ Tutor sign up changes:
+ -  Added ***"Available From"*** option for Tutor sign up. Added ***"Available To"*** option for Tutor sign up.
+ 
+ - Removed ***"Time Needed"*** column from tutor view requests page
+ - Changed ***"Time Slot"*** to ***"Class Begin Time"***
+ - Added edit profile option in profile page of tutor to open Edit profile page.
+ - Changed ***"Availability"*** to ***"Class Time"*** in Tutor Profile page
+ - Changed ***"Courses"*** to ***"Course"*** and it should have only one course in Tutor Profile
+ - Created Edit Profile page so Tutor can edit their username, or other valid options.
 
 		
 
@@ -62,6 +78,8 @@ In Firebase at the root level there are following nodes:
 
 
  - **roles:** It contains roles assigned to each userid where user having role value as 1 is an admin, 2 is a student and 3 is a tutor.
+ - **courses:** It contains the list of available courses with course code as key and title as it's value.
+ - **requests:** It contains the requests placed by student. It has keys named as ***"classBeginTime"*** to store the time when class will begin, ***"course"***  to store the course code selected by student ***"student"*** to store username of the student placing the request ***"tutor"*** to store username of the tutor.
  
 ## 5. Codebase
 
@@ -119,7 +137,9 @@ There are certain areas in the website that can be further improved like in the 
 
 - There is an important feature which helps to improve the quality of work by giving reviews/rate for tutors.
 
- 
+-The direct massage can be added and that will allow students to communicate with their tutors.
+
+
 **Web Automation Test**
 - Partially Completed Tests to review functionality of the webapp. Needs finalized test cases.
 - To test locally, follow these steps...
