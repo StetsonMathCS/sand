@@ -11,6 +11,22 @@ The goal of SAND is to create new oppertunities for students to seek help in the
   - Run python file and edit as needed.
 - https://github.com/SeleniumHQ/selenium used as reference.
 
+**Theme**
+- Creating the theme for The pages:
+	 - Home page.
+	 - Login page.
+	 - Register page.
+	 - Classes page.
+	 - students profile page.
+	 - Tutor profile page.
+	 - Schedule page.
+	 - Payment page.
+	 - Request page.
+	 - Student schedule page that shows existing student’s class.
+	- I have applied Sand theme on the website.
+- Future Work for the theme:
+ 	- Apply the theme on the website for the schedule page and add a search class window on the home page.
+
 # Firebase
 **Firebase Rules**
 - Rules that ensure that only administrators and authenticated users have access to features
