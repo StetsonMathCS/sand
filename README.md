@@ -3,6 +3,99 @@
 
 The goal of SAND is to create new oppertunities for students to seek help in their studies from their peers.  Using this application, students can submit a request for tutoring in a class, and eligilbe tutors who can accomadate the students time frame recieve a notification.  Once the tutor accepts, it is between the tutor and the student to work out payment, using the links to venmo provided.  This way, more students can get the help they need to pass their classes in a timely manner and students looking to make a bit of money can do so by helping their peers.
 # Web
+The website is written in a [laravel](https://laravel.com) framework with PHP as a core programming language. Sand theme is being used throughout the website.
+
+
+## 1. Firebase Authentication:
+
+[Firebase Authentication](https://firebase.google.com/docs/auth/?gclid=Cj0KCQjwncT1BRDhARIsAOQF9Ln9y1T0apd3o7l5Df-cNHWVrLbMOzQ6HHNyO-ZmK2xkMCg4slgPfF0aAn5ZEALw_wcB) used as areference
+
+
+## 2. Development
+
+This website has been developed as listed below:
+
+ - implemented the basic sign in, sign up and logout functionality using Firebase.
+ -  Added role based authorisation and security for each role namely student, tutor and admin. Implemented proper redirections based on logged in user.
+ -  Created different sign up pages for tutor and student. Created profile pages for tutor and student.
+ -  Made Requests Page for Students that will show all the tutors and the option to make request, where student name will be automatically taken from logged in user.
+ -  Changed Block to Time Needed
+ -  Removed rating in Tutor table
+ -  Shown availability time in tutor table
+ -  Changed "Availability" to "Class Time" in student's Place Request page
+ -  Removed "Time Needed" option from form.
+ -  Changed "Time Slot" option to "Class Beginning Time" in form
+ -  Moved "Select Tutor" option to top and "Select Course" second in form.
+ -  Course dropdown will have Course of selected teacher in dropdown.
+ -  "Class Begin Time" will have time of selected teacher in dropdown.
+ -  Changed "Existing Tutors" to "Classes"
+ -  Changed "Courses" Column to "Course" which will show only one Course.
+
+		
+
+## 3. Backend
+
+[Firebase](https://firebase.google.com/docs/database) is being used as a backend for this website.
+
+In Firebase at the root level there are following nodes:
+
+
+ - **roles:** It contains roles assigned to each userid where user having role value as 1 is an admin, 2 is a student and 3 is a tutor.
+ 
+## 4. Codebase
+
+This section will walkthrough the codebase structure for the website:
+
+ - **Controllers**
+	 - **DashboardController:** This class controls the security aspects and redirects users to proper pages on successful login or register. It enforces authorization checks and authentication checks throwing unauthorized users back to login or error page.
+	 - **StudentController:** This class is used to create, edit or manage students and their profile. It is also used to get students page for admin.
+	 - **TutorController:** This class is used to create, edit or manage tutors and their profile. It is also used to get tutors page for admin.
+	 - **ProfileController:** This class is used to get role based view profile and edit profile page.
+	 -  **RequestController:** This class is used to get Requests page for tutor and admin, Schedule page for Student. It is also used to place a new request from student.
+	 - **SubjectController:** It is used to get the Subjects page for Admin and to store courses.
+	 -  **Model Classes:** Below are the model classes used in this website to wrap Firebase data:
+			 - Course
+			 - Location
+			 - Roles
+			 - Student
+			 - Tutor 
+			 
+
+ - **resources**
+	 - **views:** It contains following views and layouts required for HTML pages:
+		- **head.blade.php:** A common blade file to implement header when user is logged in.
+		- **nav.blade.php:** A common blade file to implement nav bar when user is logged in.
+		- **app.blade.php:** A common blade file for login and sign up screens.
+		- **edit_student_ui.blade.php:** A blade file to design edit student profile page.
+		- **edit_student.blade.php:** Helper blade file for above blade file.
+		- **edit_tutor_ui.blade.php:** A blade file to design edit tutor profile page.
+		- **edit_tutor.blade.php:** Helper blade file for above blade file.
+		- **error.blade.php:** A blade file to show error pages.
+		- **login.blade.php:** A blade file for login page.
+		- **logout.blade.php:** A blade file to perform logout and redirect to login page.
+		-  **profile_ui.blade.php:** A blade file to show profile page for student and tutor.
+		- **profile.blade.php:** Helper blade file for above blade file.
+		- **requests_student_ui.blade.php:** A blade file to show request page for student.
+		- **requests_student.blade.php:** Helper blade file for above blade file.
+		- **requests_tutor_ui.blade.php:** A blade file to show request page for tutor.
+		- **requests_tutor.blade.php:** Helper blade file for above blade file.
+		- **requests_ui.blade.php:** A blade file to show request page for admin.
+		- **requests.blade.php:** Helper blade file for above blade file.
+		- **schedule_ui.blade.php:** A blade file to show schedule page for student.
+		- **signup_students.blade.php:** A blade file to show sign up page for student.
+		- **signup_tutor.blade.php:** A blade file to show sign up page for tutor.
+		- **students_ui.blade.php:** A blade file to show students page for admin.
+		-  **subjects_ui.blade.php:** A blade file to show subjects page for admin.
+		- **subjects.blade.php:** Helper blade file for above blade file.
+		- **tutor_ui.blade.php:** A blade file to show tutors page for admin.
+		- **tutor.blade.php:** Helper blade file for above blade file.
+	 - **routes:** web.php route file contains all the routes being used in the website t.
+
+
+## 6. Future Enhancements
+
+There are certain areas in the website that can be further improved like in the Admin the functionalities related to add/manage tutors, students, courses or requests can be organised further. In tutor an option can be added where a tutor can teach multiple courses.
+
 **Web Automation Test**
 - Partially Completed Tests to review functionality of the webapp. Needs finalized test cases.
 - To test locally, follow these steps...
