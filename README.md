@@ -20,14 +20,26 @@ There are kind of users using this website:
 Tutor registration is necessary for this project as without tutors student cannot study hence during registration tutor will specify which subject they teach and what are their class timings. Once they register or login they will be redirected to requests page where they can see the requests placed by different students to study from that tutor. Tutor can also view or edit their profile along with their course and class timings. 
 
 Admin is a pre-existing user where (s)he can see a list of students, tutors, requests, subjects etc. and it's a place a where they can be managed as well.
+
+##  2. How to Use
+
+If the project is running on a localhost and default port# 8000 then just open this link: http://localhost:8000 on your browser which will show the login page. If you already have the credentials you can start using the website by providing the valid credentials otherwise you can create a fresh account by registering as a tutor if you are a tutor otherwise student.
+
+If you are registering as a tutor there are bunch of information that needs to be provided which are mostly related to specifying a username, email, password and other address details. As a tutor you also have to select the course from the existing list of course dropdown and in case if your course is not available in the dropdown then please choose the other option so that you can specify the code and title of your course in the fields below the dropdown which will be added to the list of available courses on successful registration.
+
+Once you have successfully registered or logged in as a tutor you will be redirected to Requests page where you will see the list of requests placed by students interested to join your class. There is also a profile page where you can view your own profile and in case you want to change your profile details or your course information or your class timing you can do so by editing your profile.
+
+If you are registering as a student you have to provide your basic information like your username, email, password, name and address details for a successful registration. Once you have successfully registered or logged in you will be redirected to Schedule page which can be blank initially as you have not placed any request yet. You can head over to Request page where you can see the list of available tutors along with the information of courses they teach with class timing. Once you find the relevant course you want to study you can place a request by selecting the tutor from the dropdown and other relevant options. Once the request is placed you can place another request if you want. As by now you may have placed few requests so now if you head over to Schedule page you can see your schedule. In case you want to view or edit your profile you can do so by clicking on the Profile section.
+
+If you are an Admin, you need to login with your admin credentials and on successful login you will be taken to the Admin Dashboard where you can view or manage students, tutors, requests and subjects.
  
  
-## 2. Firebase Authentication:
+## 3. Firebase Authentication:
 
 [Firebase Authentication](https://firebase.google.com/docs/auth/?gclid=Cj0KCQjwncT1BRDhARIsAOQF9Ln9y1T0apd3o7l5Df-cNHWVrLbMOzQ6HHNyO-ZmK2xkMCg4slgPfF0aAn5ZEALw_wcB) used as areference
 
 
-## 3. Development
+## 4. Development
 
 This website has been developed as listed below:
 
@@ -67,10 +79,22 @@ Tutor Sign-up Changes
  - Changed ***"Availability"*** to ***"Class Time"*** in Tutor Profile page
  - Changed ***"Courses"*** to ***"Course"*** and it should have only one course in Tutor Profile
  - Created Edit Profile page so Tutor can edit their username, or other valid options.
+ 
+ - Admin Changes:
+ - Removed id field from request
+ - Changed Block heading in input and table to Time Needed
+ - Removed rating in Tutor table
+ - Shown availability time in tutor table.
+ 
+ - Made all URL to have "sand-" as prefix after localhost:8000/. Example localhost:8000/sand-requests.
+ 
+ Student page changes
+ - Added edit profile option in profile page of student to open Edit profile page.
+ - Created Edit Profile page so Student can edit their username, or other valid options.
 
 		
 
-## 4. Backend
+## 5. Backend
 
 [Firebase](https://firebase.google.com/docs/database) is being used as a backend for this website.
 
@@ -80,8 +104,9 @@ In Firebase at the root level there are following nodes:
  - **roles:** It contains roles assigned to each userid where user having role value as 1 is an admin, 2 is a student and 3 is a tutor.
  - **courses:** It contains the list of available courses with course code as key and title as it's value.
  - **requests:** It contains the requests placed by student. It has keys named as ***"classBeginTime"*** to store the time when class will begin, ***"course"***  to store the course code selected by student ***"student"*** to store username of the student placing the request ***"tutor"*** to store username of the tutor.
+ - **students:** It contains the list of students with their profile details. It has keys named as ***"email"*** , ***"firstName"*** , ***"lastName"*** , ***"password"*** and ***"userName".***
  
-## 5. Codebase
+## 6. Codebase
 
 This section will walkthrough the codebase structure for the website:
 
@@ -131,13 +156,15 @@ This section will walkthrough the codebase structure for the website:
 	 - **routes:** web.php route file contains all the routes being used in the website t.
 
 
-## 6. Future Enhancements
+## 7. Future Enhancements
 
 There are certain areas in the website that can be further improved like in the Admin the functionalities related to add/manage tutors, students, courses or requests can be organised further. In tutor an option can be added where a tutor can teach multiple courses.
 
 - There is an important feature which helps to improve the quality of work by giving reviews/rate for tutors.
 
 - The direct massage can be added and that will allow students to communicate with their tutors.
+
+- Adding payment page that handles how students pay for their tutors.
 
 
 **Web Automation Test**
